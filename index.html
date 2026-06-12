@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRPIR · Plano de Ação v2 (com skills dedicadas) · Umoja Infinity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ambar:#B45309; --ambar-esc:#78350F; --ambar-med:#FCD34D; --areia:#FEF3C7;
+  --tinta:#1C1917; --esmeralda:#15803D;
+  --roxo:#7B2D8E; --verde:#8DC63F; --laranja:#F5821F;
+  --cinza:#57534E; --linha:#E7E2D9; --papel:#FBFAF7; --branco:#fff; --vermelho:#B91C1C;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--tinta);background:var(--papel);line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:var(--ambar-esc);line-height:1.18;margin:0 0 .4em}
+h2{font-size:1.85rem;margin-top:.2em}
+h3{font-size:1.26rem;color:var(--ambar)}
+h4{font-size:1.02rem;color:var(--ambar-esc);font-family:'DM Sans',sans-serif;font-weight:700}
+p{margin:0 0 .9em}
+a{color:var(--ambar)}
+strong{color:var(--ambar-esc)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:0;max-width:1320px;margin:0 auto}
+.hero{background:linear-gradient(135deg,var(--tinta) 0%,#3a2a16 45%,var(--ambar) 130%);color:#fff;padding:52px 0 44px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-60px;top:-60px;width:340px;height:340px;border-radius:50%;background:conic-gradient(from 20deg,var(--roxo),var(--laranja),var(--verde),var(--ambar-med),var(--roxo));opacity:.16;filter:blur(8px)}
+.hero .wrap{position:relative}
+.hero h1{color:#fff;font-size:2.6rem;margin-bottom:.18em}
+.hero .sub{font-size:1.15rem;color:#FDE9C8;max-width:780px;margin-bottom:1em}
+.kicker{display:inline-flex;gap:8px;align-items:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ambar-med);margin-bottom:14px}
+.dot{width:9px;height:9px;border-radius:50%}
+.dots{display:inline-flex;gap:5px;vertical-align:middle}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.9rem;color:#EAD9BD;border-top:1px solid rgba(255,255,255,.18);padding-top:14px;margin-top:6px}
+.hero .meta b{color:#fff}
+.skillbar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 2px}
+.skillbar .sk{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:999px;padding:5px 13px;font-size:.8rem;font-weight:500}
+nav.side{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:24px 14px 24px 26px;border-right:1px solid var(--linha);background:var(--branco)}
+nav.side .brand{font-family:'Playfair Display',serif;font-weight:800;color:var(--ambar-esc);font-size:1.05rem;margin-bottom:4px}
+nav.side .brand small{display:block;font-family:'DM Sans';font-weight:500;color:var(--cinza);font-size:.72rem;letter-spacing:.04em}
+nav.side a{display:block;text-decoration:none;color:var(--cinza);font-size:.85rem;padding:7px 10px;border-radius:8px;margin:1px 0;border-left:3px solid transparent;transition:.15s}
+nav.side a:hover{background:var(--areia);color:var(--ambar-esc)}
+nav.side a .n{display:inline-block;width:20px;color:var(--ambar);font-weight:700}
+main{padding:0 0 80px;min-width:0}
+section{padding:36px 0 8px;border-bottom:1px solid var(--linha)}
+section:last-child{border-bottom:none}
+.lead{font-size:1.06rem;color:var(--cinza);max-width:840px}
+.eyebrow{font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--laranja);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.byskill{font-size:.72rem;font-weight:700;letter-spacing:.03em;color:var(--roxo);background:#F6EEF9;border:1px solid #E3CBEC;border-radius:6px;padding:2px 9px;display:inline-block;margin-left:8px;vertical-align:middle;text-transform:none}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--branco);border:1px solid var(--linha);border-radius:14px;padding:19px 20px 17px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.card.tinted{background:var(--areia);border-color:#F0E4C2}
+.card h4{margin-top:0}
+.pill{display:inline-block;font-size:.71rem;font-weight:700;letter-spacing:.03em;padding:3px 10px;border-radius:999px;background:var(--areia);color:var(--ambar-esc);border:1px solid #EAD9A8}
+.pill.roxo{background:#F3E8F7;color:var(--roxo);border-color:#E3CBEC}
+.pill.verde{background:#EAF6DA;color:#4e7d12;border-color:#D2EBB0}
+.pill.laranja{background:#FEEBD9;color:#b45f12;border-color:#FAD3AE}
+.pill.esm{background:#E3F3E8;color:var(--esmeralda);border-color:#C3E5CD}
+table{width:100%;border-collapse:collapse;margin:6px 0 18px;font-size:.89rem;background:var(--branco);border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px var(--linha)}
+th{background:var(--ambar-esc);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:.82rem}
+td{padding:10px 13px;border-top:1px solid var(--linha);vertical-align:top}
+tr:nth-child(even) td{background:#FCFAF5}
+td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ambar-esc);white-space:nowrap}
+.t-compact td,.t-compact th{padding:8px 11px;font-size:.84rem}
+.note{border-left:4px solid var(--ambar);background:var(--areia);padding:14px 18px;border-radius:0 12px 12px 0;margin:14px 0}
+.note.warn{border-color:var(--vermelho);background:#FCECEC}
+.note.ok{border-color:var(--esmeralda);background:#E9F5ED}
+.note.roxo{border-color:var(--roxo);background:#F6EEF9}
+.note p:last-child{margin-bottom:0}
+.note .tag{font-weight:700;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ambar-esc);display:block;margin-bottom:3px}
+.note.warn .tag{color:var(--vermelho)} .note.ok .tag{color:var(--esmeralda)} .note.roxo .tag{color:var(--roxo)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.stat{background:var(--branco);border:1px solid var(--linha);border-radius:14px;padding:16px 14px 13px;text-align:center}
+.stat .big{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:var(--ambar);line-height:1}
+.stat .lab{font-size:.78rem;color:var(--cinza);margin-top:6px}
+.funnel{display:flex;flex-direction:column;gap:7px;margin:14px 0}
+.fbar{display:flex;align-items:center;justify-content:space-between;color:#fff;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.9rem}
+.fbar small{font-weight:500;opacity:.92}
+.fbar .v{font-family:'Playfair Display',serif;font-size:1.2rem}
+.tl{position:relative;margin:10px 0 6px;padding-left:26px}
+.tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--linha)}
+.tl .it{position:relative;margin-bottom:16px}
+.tl .it:before{content:"";position:absolute;left:-26px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--ambar);border:3px solid var(--areia)}
+.tl .it.g:before{background:var(--verde)} .tl .it.p:before{background:var(--roxo)}
+.tl .ph{font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--cinza)}
+ul.clean{margin:.2em 0 1em;padding-left:1.1em}
+ul.clean li{margin-bottom:.4em}
+ul.tick{list-style:none;padding-left:0;margin:.3em 0 1em}
+ul.tick li{padding-left:26px;position:relative;margin-bottom:.5em}
+ul.tick li:before{content:"✓";position:absolute;left:0;top:0;color:var(--esmeralda);font-weight:700}
+.kw{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 14px}
+.kw span{background:var(--branco);border:1px solid var(--linha);border-radius:7px;padding:5px 11px;font-size:.83rem;color:var(--tinta)}
+.kw.neg span{background:#FCECEC;border-color:#F3CFCF;color:var(--vermelho);text-decoration:line-through;text-decoration-color:#d99}
+.copyblock{background:#fffdf8;border:1px solid #F0E4C2;border-radius:12px;padding:16px 18px;margin:10px 0}
+.copyblock .layer{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.copyblock .layer:last-child{margin-bottom:0}
+.copyblock .lb{flex:0 0 78px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--laranja);padding-top:3px}
+.copyblock .lb.v2{color:var(--ambar)} .copyblock .lb.v3{color:var(--esmeralda)}
+.copyblock .tx{font-size:.97rem;color:var(--tinta)}
+.copyblock .tx b{color:var(--ambar-esc)}
+.chat{background:#E5F3E8;border-radius:14px;padding:14px 16px;margin:10px 0;font-size:.93rem}
+.chat .bubble{background:#fff;border-radius:12px;padding:10px 13px;margin-bottom:8px;box-shadow:0 1px 2px rgba(0,0,0,.05);max-width:90%}
+.chat .bubble.me{background:#DCF8C6;margin-left:auto}
+.tmpl{background:var(--tinta);color:#EDE6DA;border-radius:12px;padding:15px 17px;font-size:.9rem;margin:10px 0;font-family:'DM Sans'}
+.tmpl .hd{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ambar-med);font-weight:700;margin-bottom:7px}
+.tmpl p{margin:0 0 .5em} .tmpl p:last-child{margin-bottom:0}
+footer{background:var(--tinta);color:#D8CDBC;padding:32px 0;font-size:.86rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
+footer b{color:#fff}
+.umoja{font-family:'Playfair Display',serif;font-weight:800;color:#fff;font-size:1.1rem}
+.pill.az{background:#E6EEF8;color:#1d4ed8;border-color:#C5D6F0}
+.card.az{border-color:#C5D6F0;background:#F5F8FE}
+.series{border-left:3px solid var(--laranja);padding:2px 0 2px 14px;margin-bottom:13px}
+.series h4{margin:0 0 2px}
+.series .meta{font-size:.78rem;color:var(--cinza)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow .step{background:var(--branco);border:1px solid var(--linha);border-radius:10px;padding:8px 12px;font-size:.83rem;font-weight:500}
+.flow .step b{display:block;color:var(--ambar-esc);font-size:.77rem}
+.flow .arr{color:var(--ambar);font-weight:700}
+.badge{display:inline-block;font-size:.67rem;font-weight:700;padding:2px 7px;border-radius:5px;background:#EDE6DA;color:var(--ambar-esc);margin-right:4px}
+.subnav{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 20px}
+.subnav a{font-size:.8rem;text-decoration:none;background:var(--areia);color:var(--ambar-esc);border:1px solid #EAD9A8;border-radius:999px;padding:4px 12px}
+.subnav a:hover{background:var(--ambar-med)}
+.porque{display:grid;grid-template-columns:1fr 1fr;border:1px solid #E3CBEC;border-radius:12px;overflow:hidden;margin:4px 0 20px}
+.porque>div{padding:13px 16px}
+.porque .p-why{background:#F6EEF9}
+.porque .p-goal{background:#E9F5ED}
+.porque .lbl{display:block;font-size:.71rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.porque .p-why .lbl{color:var(--roxo)}
+.porque .p-goal .lbl{color:var(--esmeralda)}
+.porque p{margin:0;font-size:.9rem}
+@media(max-width:900px){.porque{grid-template-columns:1fr}}
+@media print{nav.side{display:none}.layout{grid-template-columns:1fr}section{break-inside:avoid}}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav.side{display:none}.g2,.g3,.g4{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero h1{font-size:1.9rem}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">
+      <span class="dots"><span class="dot" style="background:var(--roxo)"></span><span class="dot" style="background:var(--verde)"></span><span class="dot" style="background:var(--laranja)"></span></span>
+      Umoja Infinity · Performance &amp; Comunicação
+    </div>
+    <h1>CRPIR — Plano de Ação <span style="opacity:.7;font-size:.7em">v2</span></h1>
+    <p class="sub">Versão refeita aplicando três skills dedicadas de causa social: campanhas, copy real, esteira B2B, verba e projeção — prontos para executar nos 5 territórios e abrir a frente corporativa.</p>
+    <div class="meta">
+      <span>Cliente: <b>GEN · CRPIR</b></span>
+      <span>Reunião: <b>R1.5 — validação com Geraldo</b></span>
+      <span>Data: <b>12/06/2026</b></span>
+      <span>Métrica-norte: <b>custo por acolhimento qualificado</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="side">
+    <div class="brand">CRPIR<small>Plano de Ação · v2</small></div>
+    <a href="#tese"><span class="n">0</span>A tese em 1 minuto</a>
+    <a href="#glossario"><span class="n">📖</span>Glossário sem jargão</a>
+    <a href="#campanhas"><span class="n">1</span>Campanhas (estrutura real)</a>
+    <a href="#dores"><span class="n">2</span>Dores + copy pronta</a>
+    <a href="#palavras"><span class="n">3</span>Palavras-chave</a>
+    <a href="#b2c-b2b"><span class="n">4</span>Munícipe + B2B</a>
+    <a href="#verba"><span class="n">5</span>Verba por campanha</a>
+    <a href="#projecao"><span class="n">6</span>Projeção</a>
+    <a href="#implementacao"><span class="n">7</span>Estágios &amp; cronograma</a>
+    <a href="#conteudo"><span class="n">8</span>Conteúdo orgânico</a>
+    <a href="#kpis"><span class="n">9</span>KPIs</a>
+    <a href="#gates"><span class="n">10</span>Pré-requisitos &amp; risco</a>
+    <a href="#fontes"><span class="n">11</span>Fontes &amp; confiança</a>
+    <a href="#decisoes"><span class="n">12</span>Decisões de hoje</a>
+  </nav>
+
+  <main><div class="wrap">
+
+  <section id="tese">
+    <div class="eyebrow"><span class="dot" style="background:var(--ambar)"></span>O ponto de partida</div>
+    <h2>A tese em um minuto</h2>
+    <p class="lead">A CRPIR não tem problema de serviço — tem problema de <strong>existência percebida</strong>. Pela leitura da liderança (R1), menos de 10% de São Paulo sabe que a rede existe<span style="font-size:.8em;color:var(--cinza)"> (estimativa interna, não pesquisa)</span>; quem sabe, hesita por <strong>medo de retaliação</strong>. O trabalho não é gerar lead barato: é <strong>criar uma categoria na cabeça do cidadão e dar coragem para agir</strong>, em 5 territórios, amarrado a metas de contrato.</p>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card"><span class="pill laranja">1</span><h4>Interrupção antes de busca</h4><p>Sem volume de busca para o que o público não conhece, o motor de topo é <b>interrupção</b> (Meta/TikTok/DOOH); o Google só <b>colhe</b> a demanda já consciente — boa parte grátis (Ad Grants).</p></div>
+      <div class="card"><span class="pill roxo">2</span><h4>Concentrar, não pulverizar</h4><p>Verba B2C 100% nos <b>5 territórios</b>. Mais frequência e recall com a mesma verba — e atribuição território a território, como a prestação de contas exige.</p></div>
+      <div class="card"><span class="pill verde">3</span><h4>Dois negócios, um propósito</h4><p><b>B2C</b> (acolhimento do munícipe) e <b>B2B</b> (letramento via RH, ancorado na NR-1) rodam <b>em paralelo</b> sobre o mesmo CRM.</p></div>
+    </div>
+    <div class="note"><span class="tag">A métrica-norte</span><p>Sucesso aqui não é "custo por lead" nem "retorno do anúncio" (o jargão de quem vende produto). É <strong>quanto custou cada acolhimento de verdade</strong> e <strong>quanto a gente avançou na meta do contrato</strong>. Cada peça move um indicador, num território, registrado no sistema.</p></div>
+    <p style="font-size:.92rem;color:var(--cinza);margin-top:14px">📖 Este plano tem alguns termos técnicos de marketing. Não precisa dominá-los — o <a href="#glossario"><b>glossário em português claro</b></a> traduz todos, com exemplo. O resto do documento foi escrito para ser entendido sem eles.</p>
+  </section>
+
+  <section id="glossario">
+    <div class="eyebrow"><span class="dot" style="background:var(--verde)"></span>Para ler sem travar</div>
+    <h2>Glossário sem jargão</h2>
+    <p class="lead">Os termos técnicos que aparecem no plano, em português claro e com exemplo. Não precisa decorar — é só uma chave de tradução. O plano funciona mesmo sem ela.</p>
+
+    <h3>Os números dos anúncios (mídia paga)</h3>
+    <table class="t-compact">
+      <tr><th style="width:22%">Termo</th><th>Em português claro (com exemplo)</th></tr>
+      <tr><td><b>CPM</b></td><td>Custo para o anúncio aparecer <b>mil vezes</b> nas telas. Ex: CPM R$12 = R$12 a cada mil aparições.</td></tr>
+      <tr><td><b>CPC</b></td><td>Custo de <b>cada clique</b> no anúncio.</td></tr>
+      <tr><td><b>CTR</b></td><td>De cada 100 pessoas que veem, quantas clicam. CTR 5% = 5 em 100.</td></tr>
+      <tr><td><b>CPL / CPA</b></td><td>Custo por "lead"/ação: quanto custou cada pessoa que deixou contato. É o jargão de quem vende produto — <b>aqui usamos "custo por acolhimento"</b>.</td></tr>
+      <tr><td><b>ROAS</b></td><td>"Retorno do anúncio": pra cada R$1 gasto, quanto voltou em venda. <b>Não se aplica aqui</b> — não vendemos nada.</td></tr>
+      <tr><td><b>Frequência</b></td><td>Quantas vezes, em média, a mesma pessoa viu o anúncio na semana. Acima de ~3,5 começa a cansar.</td></tr>
+      <tr><td><b>Lift de busca</b></td><td>Aumento nas buscas pelo nome "CRPIR" no Google — sinal de que o anúncio plantou curiosidade.</td></tr>
+    </table>
+
+    <h3>Como a gente mede e sabe de onde a pessoa veio</h3>
+    <table class="t-compact">
+      <tr><th style="width:22%">Termo</th><th>Em português claro (com exemplo)</th></tr>
+      <tr><td><b>Pixel / CAPI</b></td><td>Um "sensor" no site que conta quem visitou e o que fez, pra medir resultado sem chutar.</td></tr>
+      <tr><td><b>GA4</b></td><td>O Google Analytics: o relatório de quem entra no Portal e por qual caminho chegou.</td></tr>
+      <tr><td><b>UTM</b></td><td>Uma etiqueta invisível no link que diz <b>de onde</b> a pessoa veio (qual anúncio ou post a trouxe).</td></tr>
+      <tr><td><b>QR code rastreável</b></td><td>O quadradinho de apontar a câmera. Cada um carrega uma etiqueta — dá pra saber qual cartaz ou qual agente trouxe a pessoa.</td></tr>
+      <tr><td><b>Geo (geossegmentação)</b></td><td>Mostrar o anúncio <b>só para quem está nos bairros do contrato</b>, não na cidade toda.</td></tr>
+      <tr><td><b>Retargeting</b></td><td>Mostrar o próximo anúncio só pra quem já viu o anterior. Ex: quem assistiu ao vídeo recebe depois o convite pra conversar.</td></tr>
+    </table>
+
+    <h3>Tipos de campanha e canal</h3>
+    <table class="t-compact">
+      <tr><th style="width:22%">Termo</th><th>Em português claro (com exemplo)</th></tr>
+      <tr><td><b>Click-to-WhatsApp / Mensagens</b></td><td>Anúncio cujo botão <b>abre direto uma conversa no WhatsApp</b>.</td></tr>
+      <tr><td><b>Ad Grants</b></td><td>Verba de anúncios de busca que o Google <b>dá de graça</b> para ONGs (US$ 10 mil/mês).</td></tr>
+      <tr><td><b>DOOH</b></td><td>Telas e painéis de rua, metrô e ônibus (a "mídia exterior" digital).</td></tr>
+      <tr><td><b>Orgânico × pago</b></td><td>Orgânico = posts gratuitos no perfil. Pago = anúncio que consome verba.</td></tr>
+      <tr><td><b>Funil</b></td><td>O caminho da pessoa em 4 passos: <b>conhecer → confiar → pedir ajuda → continuar na rede</b>.</td></tr>
+      <tr><td><b>Salvamento / compartilhamento</b></td><td>Salvar = guardar o post pra depois. Compartilhar = enviar pra alguém. São o que <b>mais importa</b> no orgânico de causa social.</td></tr>
+    </table>
+
+    <h3>Termos do B2B e das normas</h3>
+    <table class="t-compact">
+      <tr><th style="width:22%">Termo</th><th>Em português claro (com exemplo)</th></tr>
+      <tr><td><b>NR-1</b></td><td>Norma do trabalho que agora <b>obriga empresas a cuidar de riscos psicológicos</b> dos funcionários — e racismo no trabalho entra nisso.</td></tr>
+      <tr><td><b>PGR</b></td><td>O documento de gestão de riscos que toda empresa precisa manter. A NR-1 fez o risco psicológico entrar nele.</td></tr>
+      <tr><td><b>ISSB / CVM 244</b></td><td>Regras de relatório de sustentabilidade das empresas de bolsa. A Resolução CVM 244 as tornou <b>voluntárias</b> — por isso o nosso argumento se apoia na NR-1, que é obrigatória.</td></tr>
+      <tr><td><b>Selo Igualdade Racial</b></td><td>Selo da Prefeitura de SP que reconhece empresas com pelo menos 20% de profissionais negros no quadro.</td></tr>
+    </table>
+  </section>
+
+  <section id="campanhas">
+    <div class="eyebrow"><span class="dot" style="background:var(--ambar)"></span>Pergunta 1</div>
+    <h2>Campanhas — estrutura pronta para montar</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>O público não conhece a CRPIR, então esperar que ele busque sozinho não funciona. Criamos uma sequência de campanhas porque cada momento — conhecer, entender, conversar, voltar — pede uma abordagem diferente.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Levar quem nunca ouviu falar da rede até uma conversa de acolhimento, gastando verba só com quem já está pronto para cada passo.</p></div></div>
+    <p class="lead">Quatro campanhas pagas + duas gratuitas, na sequência <b>Presença → Reconhecimento → Conversão → Fidelização</b>.</p>
+    <div class="note"><span class="tag">Em linguagem simples</span><p>Pense no caminho de quem vai pedir ajuda como conhecer uma casa nova: primeiro a pessoa <b>repara que ela existe</b> (Presença), depois <b>entende o que ela oferece</b> (Reconhecimento), aí <b>toca a campainha</b> (Conversão = inicia a conversa no WhatsApp) e, por fim, <b>vira parte da rede</b> (Fidelização). Cada campanha cuida de um desses momentos. Os quadros abaixo trazem o detalhe técnico para quem vai montar — o resto pode passar batido.</p></div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4><span class="pill">CAMP 1</span> PRESENÇA — Meta/IG + TikTok</h4>
+        <p style="margin:.3em 0"><b>Objetivo:</b> Reconhecimento/Alcance · <b>Geo:</b> travada por lote.</p>
+        <ul class="clean" style="margin-bottom:.3em">
+          <li>Conjunto A — geo Lote 068 (S. Miguel, Itaim P., Cid. Tiradentes)</li>
+          <li>Conjunto B — geo Lote 069 (Sé/V. Itororó, V. Sônia/Butantã)</li>
+        </ul>
+        <p style="margin:0"><b>Criativo:</b> Reels de validação + equipe técnica como autoridade. <b>KPI:</b> alcance, frequência, CPM, lift de busca por marca.</p>
+      </div>
+      <div class="card">
+        <h4><span class="pill laranja">CAMP 2</span> RECONHECIMENTO — Meta + TikTok</h4>
+        <p style="margin:.3em 0"><b>Objetivo:</b> Tráfego/Engajamento → Portal.</p>
+        <ul class="clean" style="margin-bottom:.3em">
+          <li>Conjunto por SITUAÇÃO: "Sofri racismo" · "Preciso de escuta" · "Quero meus direitos"</li>
+          <li><b>Público:</b> retargeting de quem viu 25%+ do vídeo da CAMP 1</li>
+        </ul>
+        <p style="margin:0"><b>KPI:</b> CTR, visitas ao Portal, salvamentos.</p>
+      </div>
+      <div class="card">
+        <h4><span class="pill verde">CAMP 3</span> CONVERSÃO — Click-to-WhatsApp</h4>
+        <p style="margin:.3em 0"><b>Objetivo:</b> Mensagens · <b>Destino:</b> SOMENTE WhatsApp · <b>Otimização:</b> Maximizar Conversas.</p>
+        <ul class="clean" style="margin-bottom:.3em">
+          <li>Conjunto por lote/território</li>
+          <li><b>Público:</b> retargeting de quem visitou o Portal</li>
+          <li>IA de pré-qualificação → card automático no CRM</li>
+        </ul>
+        <p style="margin:0"><b>KPI:</b> conversas iniciadas, custo por acolhimento.</p>
+      </div>
+      <div class="card">
+        <h4><span class="pill verde">CAMP 4</span> SEARCH pago — Google</h4>
+        <p style="margin:.3em 0">Complementa o Ad Grants nos termos quentes que o lance limitado do Grants não cobre. Geo 5 territórios + cidade.</p>
+        <p style="margin:0"><b>KPI:</b> conversas iniciadas, custo por conversa.</p>
+      </div>
+      <div class="card tinted">
+        <h4><span class="pill esm">GRÁTIS</span> AD GRANTS — US$10k/mês</h4>
+        <p style="margin:.3em 0">Só Search/texto. Campanhas por serviço (jurídica · acolhimento · defesa/identidade · inclusão) + busca local por território.</p>
+        <p style="margin:0"><b>Regras p/ não perder a conta:</b> CTR ≥5%, sem palavra única, 2 anúncios/grupo, 2 grupos/campanha, sitelinks, conversões configuradas.</p>
+      </div>
+      <div class="card tinted">
+        <h4><span class="pill roxo">B2B</span> REDE DO SELO</h4>
+        <p style="margin:.3em 0">Mídia paga ~R$0. LinkedIn + e-mail + indicação sobre a lista de empresas com Selo. Ancora na NR-1. Cidade inteira. (Detalhe na seção 4.)</p>
+      </div>
+    </div>
+
+    <div class="note"><span class="tag">Convenções de rastreamento (nascem com cada peça)</span>
+      <p style="margin-bottom:.4em"><b>UTM:</b> <code>utm_source</code>=meta|google|tiktok|dooh|articulador · <code>utm_medium</code>=pago|grants|organico|qr|156 · <code>utm_campaign</code>=presenca|reconhecimento|conversao_{territorio} · <code>utm_content</code>={persona}_{criativo}</p>
+      <p style="margin:0"><b>QR:</b> <code>qr_{lote}_{territorio}_{agenteId}_{midia}</code> → resolve para o Portal com a origem já gravada. <b>Nenhum dado pessoal em URL</b> (LGPD).</p></div>
+
+    <div class="note warn"><span class="tag">Bloqueador nº 1 — iniciar HOJE — ✔ verificado</span><p>Nenhuma campanha paga de Meta roda sem a <strong>autorização de anunciante de tema social</strong> (exige documento oficial com foto + confirmação de residência + selo "Pago por" no criativo). Anúncio sem o aviso é pausado, reprovado e vai para a Biblioteca de Anúncios. <strong>Sem ela, R$ 0 roda.</strong> Direitos civis/sociais (combate ao racismo) se enquadram como tema social — <i>confirmar o enquadramento exato no fluxo de autorização</i>. Atenção extra: <b>desde 01/06/2026 a Meta detecta automaticamente mídia criada/editada por IA generativa</b> — declarar quando aplicável.</p></div>
+  </section>
+
+  <section id="dores">
+    <div class="eyebrow"><span class="dot" style="background:var(--laranja)"></span>Pergunta 2</div>
+    <h2>Dores ranqueadas — com a copy pronta</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>Quem sofre racismo trava por medo e por dúvida — não por falta de informação. Por isso ordenamos as mensagens começando pela validação ("você não está errado"), nunca por "denuncie", que afasta.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Fazer a pessoa se sentir segura o bastante para dar o primeiro passo. Convertemos coragem, não só cliques.</p></div></div>
+    <p class="lead">A barreira é o <strong>medo</strong>, não a informação. A copy nunca abre com "denuncie": toda peça segue a régua <strong>valida → acolhe → permite</strong>. As dores estão na ordem em que devem liderar os criativos.</p>
+
+    <table>
+      <tr><th style="width:5%">#</th><th style="width:30%">Dor / estado mental</th><th>Abertura (camada que valida)</th><th style="width:20%">Serviço · frente</th></tr>
+      <tr><td class="num">1</td><td><b>Dúvida / autossabotagem</b><br><small>"Será que foi racismo mesmo? Tô exagerando?"</small></td><td>"Você não está errado. O que você sentiu tem nome."</td><td>Acolhimento · A</td></tr>
+      <tr><td class="num">2</td><td><b>Solidão / desamparo</b><br><small>"Não sei a quem recorrer."</small></td><td>"Existe um lugar seguro, gratuito e preparado pra te ouvir."</td><td>Encaminhamento · A/B</td></tr>
+      <tr><td class="num">3</td><td><b>Impotência jurídica</b><br><small>"É crime? O que eu faço?"</small></td><td>"Isso é crime. E você tem direitos — com quem entende."</td><td>Jurídica · A</td></tr>
+      <tr><td class="num">4</td><td><b>Medo de retaliação</b><br><small>"Se eu falar, perco o emprego."</small></td><td>"Atendimento sigiloso. Você decide cada passo."</td><td>Defesa · A</td></tr>
+      <tr><td class="num">5</td><td><b>Não reconhecimento</b><br><small>"Não é pra tanto." (frente C)</small></td><td>"Cidadania se aprende. Entenda o que mudou." <i>(educar, não acusar)</i></td><td>Formação · C</td></tr>
+    </table>
+
+    <h3>Os 3 cards de situação — copy completa</h3>
+    <div class="grid g3">
+      <div class="copyblock">
+        <h4 style="margin:0 0 10px">🟠 "Sofri racismo"</h4>
+        <div class="layer"><span class="lb">valida</span><span class="tx">"Te trataram diferente por causa da sua cor — e ficou aquele aperto? <b>Você não exagerou.</b>"</span></div>
+        <div class="layer"><span class="lb v2">acolhe</span><span class="tx">"Tem um lugar de graça, com advogado, psicólogo e assistente social, só pra te ajudar com isso."</span></div>
+        <div class="layer"><span class="lb v3">permite</span><span class="tx">"É o seu direito. <b>Chama no WhatsApp</b> — a gente te escuta, no seu tempo."</span></div>
+      </div>
+      <div class="copyblock">
+        <h4 style="margin:0 0 10px">🟣 "Preciso de escuta"</h4>
+        <div class="layer"><span class="lb">valida</span><span class="tx">"Carregar isso sozinho cansa. <b>Você não precisa.</b>"</span></div>
+        <div class="layer"><span class="lb v2">acolhe</span><span class="tx">"Aqui é um espaço seguro e sigiloso, com escuta de verdade — sem julgamento."</span></div>
+        <div class="layer"><span class="lb v3">permite</span><span class="tx">"Quando quiser falar, a gente está aqui. <b>É só mandar uma mensagem.</b>"</span></div>
+      </div>
+      <div class="copyblock">
+        <h4 style="margin:0 0 10px">🟢 "Quero meus direitos"</h4>
+        <div class="layer"><span class="lb">valida</span><span class="tx">"Saber o seu direito é o primeiro passo pra ele ser respeitado."</span></div>
+        <div class="layer"><span class="lb v2">acolhe</span><span class="tx">"A gente te explica, em linguagem simples, e te conecta ao caminho certo — de graça."</span></div>
+        <div class="layer"><span class="lb v3">permite</span><span class="tx">"<b>Fala com a gente.</b> Você decide cada passo."</span></div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>Primeira mensagem do WhatsApp (a peça mais importante)</h4>
+        <div class="chat">
+          <div class="bubble me">Oi! Vi o anúncio do CRPIR e queria conversar. <small>(pré-preenchida do anúncio)</small></div>
+          <div class="bubble">Oi, que bom que você chegou aqui 💛 Esse é um espaço seguro e gratuito. Você não precisa contar tudo agora — no seu tempo. Quer me dizer, com suas palavras, o que aconteceu?</div>
+        </div>
+        <p style="margin:0"><small>Valida → acolhe → dá controle. Nunca pede dado sensível de cara; nunca promete desfecho jurídico.</small></p>
+      </div>
+      <div class="card">
+        <h4>Swipe de hooks (Reels / topo)</h4>
+        <ul class="clean">
+          <li>"Se já te trataram diferente por causa da sua cor e você ficou na dúvida se 'foi demais' — não foi você que exagerou."</li>
+          <li>"Tem um lugar, de graça, com psicólogo, assistente social e advogado, só pra te ajudar com isso. Você sabia?"</li>
+          <li>"Ninguém devia ter que provar que sofreu racismo pra ser ouvido. Aqui, você é."</li>
+          <li><i>Frente C:</i> "Cidadania se aprende. Bora entender o que mudou?"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><span class="tag">Travas de conformidade na copy</span><p>Anúncio pago carrega o selo <b>"Pago por"</b> (use a favor — aumenta credibilidade). <b>Sem promessa jurídica.</b> Menores: sigilo via família, nunca expor dado. LGBTQIA+: comunicar acolhimento <b>antidiscriminação</b> (não só antirracismo). PcD: 100% com Libras/legenda/áudio. Ano eleitoral: ciência e direitos, nunca partido.</p></div>
+  </section>
+
+  <section id="palavras">
+    <div class="eyebrow"><span class="dot" style="background:var(--verde)"></span>Pergunta 3</div>
+    <h2>Palavras-chave — Ad Grants &amp; Search pago</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>Quem digita "como denunciar racismo" já decidiu agir — é o público mais quente e barato de alcançar. Usamos frases longas porque o Google exige isso para liberar a verba gratuita (Ad Grants).</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Estar presente no momento exato da intenção e colher essa demanda — boa parte de graça.</p></div></div>
+    <p class="lead">Frases longas de alta intenção (sobem o CTR que o Grants exige), por serviço. Mínimo 2 grupos/campanha, 2 anúncios/grupo.</p>
+    <div class="grid g2">
+      <div class="card"><h4><span class="pill">Grupo A</span> Vítima recente · jurídica</h4><div class="kw"><span>sofri racismo o que fazer</span><span>como denunciar racismo são paulo</span><span>injúria racial é crime</span><span>onde denunciar discriminação racial</span><span>racismo no trabalho o que fazer</span><span>denunciar racismo gratuito</span><span>advogado para vítima de racismo sp</span><span>meus direitos vítima de racismo</span></div></div>
+      <div class="card"><h4><span class="pill laranja">Grupo B</span> Acolhimento</h4><div class="kw"><span>apoio psicológico gratuito são paulo</span><span>onde buscar ajuda após discriminação</span><span>atendimento psicológico racismo</span><span>preciso conversar sobre o que sofri</span><span>escuta acolhimento gratuito sp</span></div></div>
+      <div class="card"><h4><span class="pill roxo">Grupo C</span> Identidade · LGBTQIA+ · PcD</h4><div class="kw"><span>como denunciar lgbtfobia são paulo</span><span>como garantir meu nome social</span><span>sofri transfobia onde denunciar</span><span>denunciar falta de acessibilidade</span><span>direitos pessoa trans sp</span></div></div>
+      <div class="card"><h4><span class="pill verde">Grupo D</span> Encaminhamento · marca</h4><div class="kw"><span>centro de referência igualdade racial são paulo</span><span>crpir são paulo</span><span>direitos da pessoa negra são paulo</span><span>qualificação profissional gratuita são paulo</span><span>onde recorrer discriminação sp</span></div></div>
+      <div class="card tinted"><h4>Busca local por território</h4><div class="kw"><span>crpir são miguel paulista</span><span>crpir cidade tiradentes</span><span>igualdade racial sé centro</span><span>crpir vila sônia butantã</span><span>centro de referência perto de mim</span></div></div>
+      <div class="card tinted"><h4><span class="pill roxo">B2B</span> Search/LinkedIn (não-Grants)</h4><div class="kw"><span>nr-1 risco psicossocial racismo</span><span>letramento racial para empresas</span><span>treinamento diversidade racial corporativo sp</span><span>selo igualdade racial são paulo como conseguir</span></div></div>
+    </div>
+    <div class="note"><span class="tag">Negativas (proteger orçamento)</span><div class="kw neg"><span>vaga de emprego</span><span>concurso</span><span>trabalhe conosco</span><span>significado de racismo</span><span>redação enem</span><span>escola</span><span>faculdade</span><span>novela</span></div><p style="margin:0"><small>Regra Umoja: negativar só o irrelevante. <b>Nunca</b> negativar termo do próprio serviço, mesmo com 0 conversão — é problema de oferta/Portal, não de relevância.</small></p></div>
+  </section>
+
+  <section id="b2c-b2b">
+    <div class="eyebrow"><span class="dot" style="background:var(--roxo)"></span>Pergunta 4</div>
+    <h2>Munícipe e B2B ao mesmo tempo</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>O impacto cresce em rede (empresas), o ciclo de venda B2B é longo e a mídia custa quase nada. Começar agora é barato, e o resultado com o munícipe vira a prova de venda para a empresa.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Abrir uma segunda fonte de escala e de sustentabilidade financeira — sem tirar verba do atendimento ao cidadão.</p></div></div>
+    <p class="lead">Dois trilhos paralelos sobre <strong>um CRM só</strong>. Não competem por verba — o B2B quase não usa mídia paga. Rodam juntos porque o ciclo B2B é longo (prospectar agora, fechar depois) e porque o resultado de um <strong>alimenta o outro</strong>.</p>
+
+    <h3>A esteira corporativa — venda em 4 degraus</h3>
+    <table>
+      <tr><th style="width:6%">#</th><th style="width:26%">Produto</th><th>Dor que resolve</th><th style="width:20%">Âncora</th></tr>
+      <tr><td class="num">1</td><td><b>Diagnóstico de clima racial / risco psicossocial</b></td><td>"A NR-1 me obriga a mapear assédio e violência e eu não tenho como."</td><td><b>NR-1 / PGR</b> (compliance)</td></tr>
+      <tr><td class="num">2</td><td><b>Letramento racial corporativo</b></td><td>"Tive um caso e preciso capacitar gestores e equipes."</td><td>Conformidade + clima</td></tr>
+      <tr><td class="num">3</td><td><b>Canal de acolhimento / denúncia</b></td><td>"Preciso de um canal técnico e seguro, não uma caixinha."</td><td>Conformidade + cuidado</td></tr>
+      <tr><td class="num">4</td><td><b>Selo &amp; prova de impacto</b></td><td>"Quero transformar isso em reputação e diferencial."</td><td>Reputação (<b>voluntária</b>)</td></tr>
+    </table>
+    <p><small>O degrau 1 entra por obrigação (fácil de aprovar no jurídico), gera achados que justificam o 2, que cria demanda pelo 3, que vira o orgulho do 4. Você sobe a escada com o cliente.</small></p>
+    <div class="note ok"><span class="tag">Âncoras verificadas (12/06/2026)</span><p><b>NR-1 / risco psicossocial:</b> Portaria MTE 1.419/2024 incluiu os riscos psicossociais no PGR; a Portaria MTE 765/2025 fixou a fiscalização <b>com multa a partir de 26/05/2026</b> — ou seja, <b>já está valendo agora</b>, para todo empregador CLT, sem exceção de porte. <b>Selo Igualdade Racial (SP):</b> Lei 16.340/2015 + Decreto 57.987/2017 — exige no mínimo <b>20% de profissionais negros</b> no quadro; inscrições costumam ir até 1º de outubro (gancho de prazo). <i>A contagem de empresas com Selo ("1.220") permanece NÃO confirmada — não citar número até validar na SMDHC.</i></p></div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>Quem decide — e a frase que abre a porta</h4>
+        <table class="t-compact" style="box-shadow:none;margin:0">
+          <tr><td><b>RH / DHO</b></td><td>"Te ajudamos a cumprir a NR-1 no recorte racial e a melhorar o clima — com dado, não achismo."</td></tr>
+          <tr><td><b>ESG</b></td><td>"Damos substância e evidência ao seu 'S' — com referência técnica reconhecida."</td></tr>
+          <tr><td><b>Jurídico</b></td><td>"Risco psicossocial racial é PGR. Estruturamos diagnóstico e canal dentro da norma."</td></tr>
+          <tr><td><b>Diretoria</b></td><td>"Conformidade + reputação + ambiente mais produtivo. E impacto que dá pra mostrar."</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h4>Quebra de objeções (as 3 mais comuns)</h4>
+        <ul class="clean">
+          <li><b>"Já temos treinamento de diversidade."</b> → "A NR-1 pede agora <b>diagnóstico e gestão do risco</b>, não só treinamento. Complementamos o que vocês já fazem."</li>
+          <li><b>"ESG virou opcional."</b> → "O <i>relato</i> do S ficou voluntário (CVM 244). Mas a <b>NR-1 não é opcional</b> — risco psicossocial é PGR. É por aí que entramos."</li>
+          <li><b>"Não vejo ROI."</b> → "Evitar passivo (multa, processo, crise) + ganhar clima. E entregamos prova de impacto pro seu ESG."</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Templates de prospecção (quase sem mídia paga)</h3>
+    <div class="grid g2">
+      <div class="tmpl"><div class="hd">LinkedIn — 1º toque (RH)</div><p>"Oi [nome], tudo bem? Com a NR-1 incluindo risco psicossocial no PGR, muitas áreas de RH estão tendo que olhar assédio e discriminação com método — inclusive o recorte racial. Somos referência técnica nisso em SP e ajudamos empresas a fazer esse diagnóstico dentro da norma. Faz sentido eu te mandar como funciona, sem compromisso?"</p></div>
+      <div class="tmpl"><div class="hd">E-mail — jurídico/compliance</div><p><b>Assunto:</b> Risco psicossocial racial no seu PGR</p><p>"[Nome], a NR-1 tornou os riscos psicossociais item obrigatório do PGR. Racismo e discriminação no trabalho entram nesse escopo. Estruturamos o diagnóstico e, se fizer sentido, o canal de acolhimento — com rigor técnico e respaldo institucional. Posso te mostrar o método em 20 minutos?"</p></div>
+    </div>
+
+    <div class="note roxo"><span class="tag">Recalibração obrigatória (não errar com o jurídico) — ✔ verificado</span><p>A <b>Resolução CVM 244 (29/05/2026)</b> alterou a CVM 193 e <b>revogou a obrigatoriedade</b> do relatório de sustentabilidade/clima (padrão ISSB) das <b>companhias abertas</b>, mantendo-o <b>voluntário</b> ("pratique ou explique", compromisso de 3 anos). Duas consequências para o pitch: (1) <strong>não ancorar em "obrigação de reportar ESG"</strong> — não é mais obrigatório; (2) isso só afeta <b>empresas listadas</b> — para a maioria dos prospects, reporte ESG nunca foi obrigação. Por isso o eixo é a <strong>NR-1</strong>, que vale para <b>todo empregador CLT</b>, sem exceção de porte. Selo/ESG entram como reputação voluntária.</p></div>
+    <div class="note ok"><span class="tag">A sinergia que nenhuma consultoria tem</span><p>O dado do B2C — <strong>"acolhemos X munícipes neste trimestre"</strong> — é a prova de venda mais forte do B2B. A persona do trabalhador informal é a ponte (condições de trabalho). Mesmo CRM, mesma identidade âmbar: "casa que acolhe <b>e</b> referência técnica da cidade".</p></div>
+
+    <h3 style="margin-top:26px">➕ PLUS — Campanha paga de prospecção B2B</h3>
+    <p class="lead">A frente B2B roda sozinha com LinkedIn orgânico + lista do Selo + indicação. Este PLUS é um acelerador opcional: uma camada de <strong>mídia paga de precisão</strong> para colocar a CRPIR na frente do decisor certo (RH, ESG, jurídico) e encher a agenda de reuniões mais rápido.</p>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>A frente corporativa é ciclo longo: quanto antes a agenda de reuniões enche, antes o primeiro diagnóstico fecha. A prospecção orgânica é boa, mas lenta — uma verba pequena e cirúrgica no LinkedIn antecipa esse calendário.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Transformar a prospecção em algo previsível: um fluxo constante de reuniões com decisores que alimentam o degrau 1 da esteira (diagnóstico).</p></div></div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>Estratégia &amp; segmentação</h4>
+        <ul class="clean">
+          <li><b>Objetivo:</b> gerar <b>lead qualificado</b> e conversa com decisor — não alcance de massa.</li>
+          <li><b>Canal-mãe:</b> LinkedIn Ads (é onde o decisor B2B está).</li>
+          <li><b>Segmentação:</b> cargo (RH/DHO, ESG/Sustentabilidade, Compliance, Jurídico, Diretoria) + porte (200+ funcionários) + região (SP e Grande SP) + setores com exposição reputacional + <b>lista de empresas com Selo</b>.</li>
+          <li><b>Formatos:</b> Formulário de Lead ("baixe o checklist de NR-1 racial"), Conversation Ads (convite ao diagnóstico), imagem de autoridade.</li>
+          <li><b>Retargeting:</b> quem visitou a página B2B ou engajou com a série "RH antirracista".</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Como a verba é usada <small>(no cenário de R$ 3.000)</small></h4>
+        <table class="t-compact" style="box-shadow:none;margin:0">
+          <tr><td>LinkedIn — Lead Form + Conversation Ads</td><td class="num">R$ 1.800</td><td>60%</td></tr>
+          <tr><td>Retargeting (LinkedIn + Meta p/ decisores)</td><td class="num">R$ 700</td><td>~23%</td></tr>
+          <tr><td>Impulsionar o melhor conteúdo de autoridade</td><td class="num">R$ 500</td><td>~17%</td></tr>
+        </table>
+        <p style="margin:.5em 0 0"><small>A maior fatia vai à captura direta do lead; o retargeting recupera quem quase converteu; o impulsionamento gera inbound qualificado.</small></p>
+      </div>
+    </div>
+
+    <table>
+      <tr><th>Nível do PLUS</th><th class="num" style="color:#fff">Verba/mês</th><th>Por que essa verba &amp; o que esperar</th></tr>
+      <tr><td><b>Enxuto</b></td><td class="num">R$ 1.500</td><td>Valida o custo por lead B2B com risco mínimo. LinkedIn é caro por clique — R$1,5k já testa o canal e abastece o início da agenda.</td></tr>
+      <tr><td><b>Recomendado</b></td><td class="num">R$ 3.000</td><td>Patamar para um fluxo estável. Premissa: ~15–25 leads de formulário (custo por lead R$120–200) <i>ou</i> ~10–18 conversas → <b>~4–8 reuniões com decisor/mês</b>.</td></tr>
+      <tr><td><b>Forte</b></td><td class="num">R$ 5.000</td><td>Quando a equipe comercial comprovar que dá conta do volume de reuniões — só então faz sentido pisar fundo.</td></tr>
+    </table>
+    <div class="note roxo"><span class="tag">Por que separada do B2C</span><p>Esta verba <strong>soma por fora</strong> e não compete com o orçamento do munícipe: o B2C é concentrado nos 5 territórios; o B2B é a cidade inteira. Misturar diluiria os dois. E o objetivo aqui não é volume de leads — é <strong>reunião com o decisor certo</strong>; por isso a verba é pequena e cirúrgica, não alta e dispersa. <i>Os números são premissa — confirmam-se com os primeiros 30 dias.</i></p></div>
+  </section>
+
+  <section id="verba">
+    <div class="eyebrow"><span class="dot" style="background:var(--ambar)"></span>Pergunta 5</div>
+    <h2>Verba por campanha</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>O gargalo é o desconhecimento, então a maior fatia vai para gerar consciência. Começamos pequeno (Essencial) para validar os números antes de escalar — e para não criar fila sem capacidade de atender.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Provar o conceito com risco baixo e ganhar base real para pedir mais verba com segurança.</p></div></div>
+    <p class="lead">A maior fatia vai para <strong>consciência</strong> (o gargalo é desconhecimento). Google pago só complementa o Grants. ~10–15% em criativo/testes. <strong>Partida recomendada: Essencial.</strong></p>
+    <table>
+      <tr><th>Campanha / linha</th><th class="num" style="color:#fff">Essencial</th><th class="num" style="color:#fff">Recomendado</th><th class="num" style="color:#fff">Agressivo</th></tr>
+      <tr><td><b>Bloco Meta+TikTok</b> (Presença+Reconhec.+Conversão)</td><td class="num">R$ 6.000</td><td class="num">R$ 12.000</td><td class="num">R$ 22.000</td></tr>
+      <tr><td style="padding-left:26px"><small>↳ Presença</small></td><td class="num"><small>~2.200</small></td><td class="num"><small>~4.500</small></td><td class="num"><small>~9.000</small></td></tr>
+      <tr><td style="padding-left:26px"><small>↳ Reconhecimento</small></td><td class="num"><small>~1.300</small></td><td class="num"><small>~3.000</small></td><td class="num"><small>~5.000</small></td></tr>
+      <tr><td style="padding-left:26px"><small>↳ Conversão (WhatsApp)</small></td><td class="num"><small>~2.500</small></td><td class="num"><small>~4.500</small></td><td class="num"><small>~8.000</small></td></tr>
+      <tr><td><b>Search pago</b> (compl. ao Grants)</td><td class="num">R$ 1.500</td><td class="num">R$ 3.000</td><td class="num">R$ 5.000</td></tr>
+      <tr><td><b>DOOH / programática</b></td><td class="num">Permuta</td><td class="num">R$ 4.000</td><td class="num">R$ 10.000</td></tr>
+      <tr><td><b>Criativo + testes</b></td><td class="num">R$ 1.500</td><td class="num">R$ 3.000</td><td class="num">R$ 6.000</td></tr>
+      <tr style="font-weight:700"><td>TOTAL mensal de mídia (B2C)</td><td class="num" style="color:var(--esmeralda)">~R$ 9.000</td><td class="num" style="color:var(--esmeralda)">~R$ 22.000</td><td class="num" style="color:var(--esmeralda)">~R$ 43.000</td></tr>
+      <tr style="background:#F6EEF9"><td><b>➕ PLUS · Prospecção B2B (LinkedIn)</b> <small>opcional, soma por fora — detalhe na seção 4</small></td><td class="num">R$ 1.500</td><td class="num">R$ 3.000</td><td class="num">R$ 5.000</td></tr>
+    </table>
+    <div class="grid g3">
+      <div class="card"><span class="pill esm">Essencial</span><h4>Prova de conceito</h4><p>2–3 territórios (Cidade Tiradentes pelo legado + 1 do Lote 069). Valida CPM, custo por conversa e a esteira de acolhimento.</p></div>
+      <div class="card"><span class="pill">Recomendado</span><h4>Cobertura dos 5</h4><p>Todos os territórios + DOOH pago pontual.</p></div>
+      <div class="card"><span class="pill laranja">Agressivo</span><h4>"Queremos filas"</h4><p>Só <b>depois</b> de confirmar a capacidade de atendimento (10 agentes têm teto).</p></div>
+    </div>
+    <div class="note"><span class="tag">Some a qualquer cenário (grátis)</span><p><b>Ad Grants (~US$10k/mês)</b> + <b>DOOH por permuta</b>. Multiplicam alcance sem mexer no caixa.</p></div>
+  </section>
+
+  <section id="projecao">
+    <div class="eyebrow"><span class="dot" style="background:var(--esmeralda)"></span>Pergunta 6</div>
+    <h2>Projeção de resultados</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>O cliente precisa de uma expectativa de resultado, mas sem campanha rodando só temos médias de mercado. Por isso deixamos cada suposição declarada e visível, em vez de prometer um número.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Dar um número honesto para alinhar expectativa — e um termômetro para comparar com o resultado real em 30 dias.</p></div></div>
+    <p class="lead">Uma "conta de padaria" honesta: a partir da verba e de <b>médias de mercado</b>, estimamos quantas pessoas o plano alcança e quantos acolhimentos isso pode gerar. Não é promessa — é um cenário para dimensionar expectativa. Os números reais entram nos primeiros 15 a 30 dias.</p>
+    <div class="note"><span class="tag">Premissas declaradas (só confirmam com 14–30 dias de dado real)</span><p>CPM tema social <b>R$12</b> · CPC tráfego <b>R$0,90</b> · custo por conversa <b>R$14</b> · conversa→acolhimento <b>45%</b> · Search pago CPC <b>R$2,20</b>, clique→conversa <b>12%</b> · Ad Grants <b>+40 conversas/mês</b>.</p></div>
+
+    <h3>Essencial — R$9.000/mês</h3>
+    <div class="funnel">
+      <div class="fbar" style="background:var(--ambar);width:100%"><span>Alcance (territórios) <small>· freq. ~2,8</small></span><span class="v">~65.000</span></div>
+      <div class="fbar" style="background:#a8631a;width:84%"><span>Cliques ao Portal</span><span class="v">~1.450</span></div>
+      <div class="fbar" style="background:var(--laranja);width:62%"><span>Conversas (WhatsApp + Search + Grants)</span><span class="v">~300</span></div>
+      <div class="fbar" style="background:var(--esmeralda);width:40%"><span>Acolhimentos qualificados via mídia</span><span class="v">~135 / mês</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big">~135</div><div class="lab">acolhimentos/mês via mídia</div></div>
+      <div class="stat"><div class="big">~11%</div><div class="lab">da meta (1.200/mês)</div></div>
+      <div class="stat"><div class="big">~R$67</div><div class="lab">custo / acolhimento qualif.</div></div>
+      <div class="stat"><div class="big">2–3</div><div class="lab">territórios ativos</div></div>
+    </div>
+
+    <h3 style="margin-top:22px">Recomendado — R$22.000/mês</h3>
+    <div class="funnel">
+      <div class="fbar" style="background:var(--ambar);width:100%"><span>Alcance (5 territórios + DOOH) <small>· freq. ~3</small></span><span class="v">~130.000</span></div>
+      <div class="fbar" style="background:#a8631a;width:82%"><span>Cliques ao Portal</span><span class="v">~3.300</span></div>
+      <div class="fbar" style="background:var(--laranja);width:60%"><span>Conversas (todos os canais + DOOH/QR)</span><span class="v">~565</span></div>
+      <div class="fbar" style="background:var(--esmeralda);width:40%"><span>Acolhimentos qualificados via mídia</span><span class="v">~255 / mês</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big">~255</div><div class="lab">acolhimentos/mês via mídia</div></div>
+      <div class="stat"><div class="big">~21%</div><div class="lab">da meta agregada</div></div>
+      <div class="stat"><div class="big">~R$86</div><div class="lab">custo / acolhimento qualif.</div></div>
+      <div class="stat"><div class="big">5</div><div class="lab">territórios cobertos</div></div>
+    </div>
+    <div class="note ok"><span class="tag">Leitura honesta</span><p>A mídia <strong>não</strong> entrega os 1.200 sozinha — a maior parte vem do orgânico, dos 10 articuladores e do presencial. A mídia <strong>acelera, qualifica e etiqueta a origem</strong> (UTM/QR/156) para provar à Prefeitura o que a verba gerou. O cenário Agressivo (~450/mês, ~38% da meta) só liga após confirmar capacidade.</p></div>
+  </section>
+
+  <section id="implementacao">
+    <div class="eyebrow"><span class="dot" style="background:var(--ambar)"></span>Pergunta 7</div>
+    <h2>Estágios &amp; cronograma — 90 dias</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>Nada de mídia paga roda sem a autorização da Meta e sem os "sensores" de medição instalados. Por isso a Fase 0 destrava tudo antes de gastar o primeiro real.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Evitar gastar às cegas e garantir que cada real seja medido e comprovável desde o primeiro dia.</p></div></div>
+    <div class="tl">
+      <div class="it p">
+        <div class="ph">Fase 0 · Semanas 1–2 — destravar o motor</div>
+        <ul class="clean">
+          <li>Iniciar <b>autorização de tema social na Meta</b> + confirmar WhatsApp API oficial.</li>
+          <li>Inventário de ativos com o Geraldo (BM, Pixel, GA4, Google Meu Negócio dos 5 pontos).</li>
+          <li>Receber pacote de contrato (8 indicadores, metas, fonte de dados); padronizar UTMs/QR.</li>
+          <li>Decidir onde o CRM/dados moram (App vs. NetSuite).</li>
+        </ul>
+      </div>
+      <div class="it">
+        <div class="ph">Fase 1 · Semanas 3–6 — esteira no ar</div>
+        <ul class="clean">
+          <li>Identidade âmbar aplicada (Alana) + diretriz editorial de blindagem eleitoral <b>escrita</b>.</li>
+          <li>Conteúdo orgânico contínuo (dia fixo de gravação/aprovação: Nalva via Joseph).</li>
+          <li><b>Ad Grants</b> estruturado (CTR ≥5%, sitelinks, conversões) + busca local.</li>
+          <li>Campanha paga de consciência (<b>Essencial</b>) em 2–3 territórios; 1ºs dados de CPM/custo por conversa.</li>
+          <li>Kit de campo do articulador (script, folder + QR único, FAQ) para os 10 agentes.</li>
+        </ul>
+      </div>
+      <div class="it g">
+        <div class="ph">Fase 2 · Semanas 7–12 — calibrar e escalar</div>
+        <ul class="clean">
+          <li>Otimização com dados reais; Essencial → Recomendado <b>conforme a capacidade</b>.</li>
+          <li>Lançar a <b>frente B2B</b>: lista do Selo + pitch NR-1; primeiras reuniões/diagnósticos.</li>
+          <li>DOOH/programática (permuta) com atribuição via QR/156.</li>
+          <li>Prova social com opt-in; dashboard para o 1º relatório à Prefeitura.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="conteudo">
+    <div class="eyebrow"><span class="dot" style="background:var(--laranja)"></span>Pergunta 7b — o motor completo</div>
+    <h2>Conteúdo orgânico — o motor completo</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>O anúncio traz alcance, mas confiança e reputação se constroem no tempo e de graça. Metade do conteúdo celebra cultura para não cansar quem só ouve falar de dor.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Construir a confiança que faz o cidadão buscar a CRPIR sozinho — e sustentar o resultado mesmo quando a mídia paga não está no ar.</p></div></div>
+    <p class="lead">A mídia paga cria alcance; o orgânico cria <strong>confiança e categoria</strong> — e sustenta o cidadão que pesquisa a CRPIR depois do anúncio. A moeda nº1 aqui não é o like: é o <strong>salvamento</strong> (utilidade) e o <strong>compartilhamento</strong> (alguém envia para quem precisa). Todo post mira uma das duas. Régua de toda peça: <strong>valida → acolhe → permite</strong>, nunca "denuncie", 100% com Libras/legenda/áudio.</p>
+    <div class="subnav">
+      <a href="#c-pilares">7 pilares</a><a href="#c-series">séries</a><a href="#c-motor">motor 1→8</a><a href="#c-cadencia">cadência</a><a href="#c-cal">calendário</a><a href="#c-banco">40+ pautas</a><a href="#c-persona">por persona</a><a href="#c-datas">datas-marco</a><a href="#c-canais">canais não-Meta</a><a href="#c-funil">funil</a><a href="#c-mod">moderação</a><a href="#c-kpi">KPIs</a>
+    </div>
+
+    <h3 id="c-pilares">Os 7 pilares</h3>
+    <p>Todo post nasce de um pilar. Mix mensal sugerido entre parênteses — equilibra acolhimento, educação e celebração (metade do calendário não fala de dor: celebra cultura e rede).</p>
+    <div class="grid g2">
+      <div class="card"><span class="pill laranja">Pilar 1 · ~20%</span><h4>Validação &amp; acolhimento</h4><p>Nomeia o sentimento, tira o peso. "Você não está errado." <small><b>Formatos:</b> Reel pra câmera, card de frase, story enquete.</small></p></div>
+      <div class="card"><span class="pill roxo">Pilar 2 · ~20%</span><h4>Letramento &amp; educação</h4><p>O que é racismo, microagressões, o que mudou na lei — sem juridiquês, sem acusar. <small><b>Formatos:</b> carrossel, Reel "em 30s", TikTok.</small></p></div>
+      <div class="card"><span class="pill">Pilar 3 · ~15%</span><h4>Autoridade &amp; equipe</h4><p>Psicólogo, advogado e assistente social na câmera. Combate a pecha de caridade. <small><b>Formatos:</b> vídeo, "pergunta pra equipe".</small></p></div>
+      <div class="card"><span class="pill verde">Pilar 4 · ~15%</span><h4>Direitos &amp; serviços</h4><p>Os 6 serviços traduzidos: como acessar, passo a passo, o que esperar. <small><b>Formatos:</b> carrossel passo a passo, card, story FAQ.</small></p></div>
+      <div class="card"><span class="pill esm">Pilar 5 · ~15%</span><h4>Prova, rede &amp; impacto</h4><p>Histórias (opt-in), oficinas, parceiros. "Ninguém caminha sozinho." <small><b>Formatos:</b> bastidor, depoimento, números do mês.</small></p></div>
+      <div class="card" style="background:#F6EEF9;border-color:#E3CBEC"><span class="pill roxo">Pilar 6 · ~10%</span><h4>Cultura &amp; pertencimento</h4><p>Ancestralidade, Ubuntu, efemérides, agenda cultural. Celebra — não só denuncia. <small><b>Formatos:</b> card visual, Reel cultural.</small></p></div>
+      <div class="card az"><span class="pill az">Pilar 7 · ~5%</span><h4>Letramento corporativo (B2B)</h4><p>LinkedIn: NR-1, letramento racial, dado de impacto. Alimenta a frente B2B. <small><b>Formatos:</b> post de autoridade, carrossel de dados.</small></p></div>
+    </div>
+
+    <h3 id="c-series">Séries recorrentes nomeadas — o que dá volume sem reinventar</h3>
+    <div class="grid g2">
+      <div class="series"><h4>🟠 "Tem nome"</h4><div class="meta">Pilar 1 · semanal · Reel/card — nomeia uma situação comum. Valida.</div></div>
+      <div class="series"><h4>⚖️ "Seus direitos em 30s"</h4><div class="meta">Pilar 4 · semanal · Reel rápido com a advogada, 1 direito por vez.</div></div>
+      <div class="series"><h4>💬 "Pergunta pra equipe"</h4><div class="meta">Pilar 3 · quinzenal · responde dúvida real (caixinha) com o técnico certo.</div></div>
+      <div class="series"><h4>🤔 "Isso é racismo?"</h4><div class="meta">Pilar 2 · quinzenal · carrossel com um caso → explica. Alto salvamento.</div></div>
+      <div class="series"><h4>💛 "Gente da rede"</h4><div class="meta">Pilar 5 · mensal · apresenta parceiro/serviço/agente. Humaniza.</div></div>
+      <div class="series"><h4>✊🏿 "Palavra ancestral"</h4><div class="meta">Pilar 6 · semanal · um conceito afro (Ubuntu, Sankofa) ligado à missão.</div></div>
+      <div class="series"><h4>📍 "No território"</h4><div class="meta">Pilar 5 · semanal · bastidor de oficina nos 5 territórios + convite.</div></div>
+      <div class="series"><h4>🏢 "RH antirracista"</h4><div class="meta">Pilar 7 · semanal (LinkedIn) · uma prática/obrigação (NR-1) p/ empresas.</div></div>
+    </div>
+
+    <h3 id="c-motor">Motor de reaproveitamento — 1 gravação vira 8 peças</h3>
+    <p>Volume não vem de gravar mais — vem de <strong>fatiar melhor</strong>. Uma gravação da equipe (~15 min, dia fixo) abastece a semana em todos os canais.</p>
+    <div class="flow">
+      <div class="step"><b>FONTE</b>1 vídeo da equipe (~15 min)</div><span class="arr">→</span>
+      <div class="step"><b>1</b>Reel (60–90s)</div><div class="step"><b>2–4</b>3 cortes Stories</div>
+      <div class="step"><b>5</b>Carrossel (pontos)</div><div class="step"><b>6</b>Card de citação</div>
+      <div class="step"><b>7</b>Áudio WhatsApp/rádio</div><div class="step"><b>8</b>Trecho LinkedIn</div>
+    </div>
+    <div class="note"><span class="tag">Regra</span><p>A gravação já é roteirizada em <b>blocos curtos autocontidos</b> (cada resposta vira um corte), na vertical, com identidade âmbar ao fundo. Legenda queimada, janela de Libras e versão em áudio saem no mesmo lote — não depois.</p></div>
+
+    <h3 id="c-cadencia">Cadência &amp; volume por canal</h3>
+    <p>Dois níveis. <b>Sustentável</b> = o que um time enxuto sustenta. <b>Robusto</b> = com braço de produção. Comece no sustentável e suba — volume que não se sustenta vira feed abandonado.</p>
+    <table class="t-compact">
+      <tr><th>Canal</th><th>Sustentável (semana)</th><th>Robusto (semana)</th><th>Pilares</th></tr>
+      <tr><td>IG — Reels</td><td>2</td><td>4</td><td>1, 2, 3</td></tr>
+      <tr><td>IG — Carrossel</td><td>1</td><td>2</td><td>2, 4</td></tr>
+      <tr><td>IG — Card/feed</td><td>1</td><td>2</td><td>1, 6</td></tr>
+      <tr><td>IG — Stories</td><td>3–4 dias</td><td>todos os dias</td><td>3, 4, 5</td></tr>
+      <tr><td>TikTok</td><td>2 (repurpose)</td><td>4</td><td>1, 2</td></tr>
+      <tr><td>YouTube (c/ Libras)</td><td>1/mês + Shorts</td><td>2/mês + Shorts</td><td>3, 5</td></tr>
+      <tr><td>WhatsApp (status/lista)</td><td>3</td><td>5</td><td>4, 5</td></tr>
+      <tr><td>LinkedIn (B2B)</td><td>2</td><td>3</td><td>7, 5</td></tr>
+      <tr><td>Rádio AM/FM + áudio</td><td>1 spot (se houver parceria)</td><td>2</td><td>2, 4</td></tr>
+    </table>
+
+    <h3 id="c-cal">Calendário editorial — ciclo de 4 semanas (nível Robusto, IG)</h3>
+    <table class="t-compact">
+      <tr><th>Sem.</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th></tr>
+      <tr><td><b>1</b></td><td>Reel "Tem nome" <span class="badge">P1</span></td><td>Stories FAQ <span class="badge">P4</span></td><td>Carrossel "Isso é racismo?" <span class="badge">P2</span></td><td>Card "Palavra ancestral" <span class="badge">P6</span></td><td>Reel "Direitos em 30s" <span class="badge">P4</span></td><td>"No território" <span class="badge">P5</span></td></tr>
+      <tr><td><b>2</b></td><td>Reel autoridade <span class="badge">P3</span></td><td>Stories enquete <span class="badge">P1</span></td><td>Carrossel passo a passo <span class="badge">P4</span></td><td>Card validação <span class="badge">P1</span></td><td>"Pergunta pra equipe" <span class="badge">P3</span></td><td>Reel cultural <span class="badge">P6</span></td></tr>
+      <tr><td><b>3</b></td><td>Reel "Tem nome" <span class="badge">P1</span></td><td>Stories bastidor <span class="badge">P5</span></td><td>Carrossel letramento <span class="badge">P2</span></td><td>"Gente da rede" <span class="badge">P5</span></td><td>Reel "Direitos em 30s" <span class="badge">P4</span></td><td>Card "Palavra ancestral" <span class="badge">P6</span></td></tr>
+      <tr><td><b>4</b></td><td>Reel autoridade <span class="badge">P3</span></td><td>Stories FAQ+CTA <span class="badge">P4</span></td><td>Carrossel "Isso é racismo?" <span class="badge">P2</span></td><td>Recap de impacto <span class="badge">P5</span></td><td>Reel convite a oficina <span class="badge">P5</span></td><td>Reel cultural <span class="badge">P6</span></td></tr>
+    </table>
+    <p style="margin:0 0 .6em"><small>LinkedIn (P7): ter+qui · TikTok: repurpose seg+sex · WhatsApp status: seg/qua/sex · YouTube: 1 vídeo c/ Libras na semana 2.</small></p>
+
+    <h3 id="c-banco">Banco de 40+ pautas prontas</h3>
+    <p>Cada pauta com gancho na voz certa. Use, adapte, gire — para nunca travar no "o que postar".</p>
+    <p style="margin:.2em 0"><b>Pilar 1 — Validação</b></p>
+    <table class="t-compact">
+      <tr><th style="width:30%">Pauta</th><th>Gancho</th><th style="width:12%">Formato</th></tr>
+      <tr><td>A dúvida que paralisa</td><td>"Se você ficou na dúvida se 'foi racismo mesmo' — essa dúvida já é parte da dor. E não, você não exagerou."</td><td>Reel</td></tr>
+      <tr><td>Não é sua culpa</td><td>"A vergonha não devia ser sua. Quem comete é quem deveria sentir."</td><td>Card</td></tr>
+      <tr><td>Cansaço racial</td><td>"Existe um cansaço que não é do corpo. Tem nome, e a gente entende."</td><td>Reel</td></tr>
+      <tr><td>Direito de sentir</td><td>"Sentir raiva, medo ou tristeza depois disso não é fraqueza. É humano."</td><td>Card</td></tr>
+      <tr><td>Pergunta validante</td><td>"Já te trataram diferente por causa da sua cor? (enquete)"</td><td>Story</td></tr>
+    </table>
+    <p style="margin:.2em 0"><b>Pilar 2 — Letramento</b></p>
+    <table class="t-compact">
+      <tr><th style="width:30%">Pauta</th><th>Gancho</th><th style="width:12%">Formato</th></tr>
+      <tr><td>Racismo recreativo</td><td>"3 'brincadeiras' que são racismo — e por que machucam de verdade."</td><td>Carrossel</td></tr>
+      <tr><td>Injúria racial × racismo</td><td>"Não é a mesma coisa — e a diferença muda o que você pode fazer."</td><td>Carrossel</td></tr>
+      <tr><td>O que mudou na lei</td><td>"Injúria racial agora é equiparada a racismo. O que isso significa pra você?"</td><td>Reel</td></tr>
+      <tr><td>Microagressões no trabalho</td><td>"'Mas você é tão articulado' não é elogio. Entenda por quê."</td><td>Carrossel</td></tr>
+      <tr><td>Racismo online</td><td>"O racismo também acontece na tela. E também é crime."</td><td>Reel/TikTok</td></tr>
+      <tr><td>Colorismo</td><td>"Por que a tonalidade da pele muda como o racismo atinge."</td><td>Carrossel</td></tr>
+      <tr><td>Letramento sem culpa (frente C)</td><td>"Ninguém nasce sabendo. Bora desaprender junto?"</td><td>Reel</td></tr>
+    </table>
+    <p style="margin:.2em 0"><b>Pilar 3 — Autoridade</b></p>
+    <table class="t-compact">
+      <tr><th style="width:30%">Pauta</th><th>Gancho</th><th style="width:12%">Formato</th></tr>
+      <tr><td>Quem te atende</td><td>"Aqui tem psicólogo, assistente social e advogado de verdade. Conhece a equipe."</td><td>Vídeo</td></tr>
+      <tr><td>A advogada responde</td><td>"'Posso denunciar mesmo sem prova?' — a resposta da nossa advogada."</td><td>Reel</td></tr>
+      <tr><td>Escuta qualificada</td><td>"Não é só desabafar. É ser ouvido por quem sabe acolher."</td><td>Vídeo</td></tr>
+      <tr><td>Sigilo na prática</td><td>"O que acontece com o que você conta aqui? Fica entre nós."</td><td>Reel</td></tr>
+      <tr><td>Caixinha de perguntas</td><td>"Manda sua dúvida sobre direitos. A equipe responde na sexta."</td><td>Story</td></tr>
+    </table>
+    <p style="margin:.2em 0"><b>Pilar 4 — Direitos &amp; serviços</b></p>
+    <table class="t-compact">
+      <tr><th style="width:30%">Pauta</th><th>Gancho</th><th style="width:12%">Formato</th></tr>
+      <tr><td>Como é o 1º contato</td><td>"Medo de procurar? Veja o passo a passo do que acontece quando você chama."</td><td>Carrossel</td></tr>
+      <tr><td>Os 6 serviços</td><td>"A CRPIR faz mais do que você imagina. Salva esse guia."</td><td>Carrossel</td></tr>
+      <tr><td>Nome social</td><td>"Como garantir seu nome social — passo a passo."</td><td>Carrossel</td></tr>
+      <tr><td>Inclusão produtiva</td><td>"Quer recomeçar no trabalho? Tem caminho — e é de graça."</td><td>Reel</td></tr>
+      <tr><td>Encaminhamento</td><td>"Não sabe a quem recorrer? A gente conecta você ao lugar certo."</td><td>Card</td></tr>
+      <tr><td>Tudo é gratuito</td><td>"Sim, é de graça. Como o posto de saúde — público e preparado pra você."</td><td>Card</td></tr>
+    </table>
+    <p style="margin:.2em 0"><b>Pilar 5 — Prova &amp; rede</b></p>
+    <table class="t-compact">
+      <tr><th style="width:30%">Pauta</th><th>Gancho</th><th style="width:12%">Formato</th></tr>
+      <tr><td>Números do mês</td><td>"Neste mês acolhemos [X] pessoas e fizemos [Y] oficinas. Ninguém caminha sozinho."</td><td>Carrossel</td></tr>
+      <tr><td>Oficina no território</td><td>"Foi assim a roda de conversa em [bairro]. Bora pra próxima?"</td><td>Reel</td></tr>
+      <tr><td>Depoimento (opt-in)</td><td>"'Eu achava que era só comigo.' — a história de quem foi acolhido aqui."</td><td>Vídeo</td></tr>
+      <tr><td>Parceiro da rede</td><td>"Conhece a [parceiro]? Juntos a gente vai mais longe."</td><td>Card</td></tr>
+      <tr><td>O agente do território</td><td>"Esse é o [agente]. Talvez você o encontre na feira, na escola."</td><td>Reel</td></tr>
+    </table>
+    <p style="margin:.2em 0"><b>Pilar 6 — Cultura &nbsp;|&nbsp; Pilar 7 — B2B</b></p>
+    <table class="t-compact">
+      <tr><th style="width:30%">Pauta</th><th>Gancho</th><th style="width:12%">Formato</th></tr>
+      <tr><td>Ubuntu</td><td>"'Eu sou porque nós somos.' O que Ubuntu tem a ver com você."</td><td>Card/Reel</td></tr>
+      <tr><td>Sankofa</td><td>"Olhar pra trás pra seguir em frente. A sabedoria que guia a gente."</td><td>Card</td></tr>
+      <tr><td>Agenda cultural negra</td><td>"O que rola de cultura preta na cidade esse mês — salva e compartilha."</td><td>Carrossel</td></tr>
+      <tr><td>13 de maio não é liberdade</td><td>"A abolição não foi um presente. Foi e é luta. Entenda."</td><td>Carrossel</td></tr>
+      <tr><td><span class="pill az">B2B</span> NR-1 e racismo</td><td>"Racismo no trabalho é risco psicossocial — e agora é obrigação legal mapear. RH, é com você."</td><td>LinkedIn</td></tr>
+      <tr><td><span class="pill az">B2B</span> Clima racial</td><td>"Sua empresa mede o clima racial? O que não se mede, não se gere."</td><td>LinkedIn</td></tr>
+      <tr><td><span class="pill az">B2B</span> Selo</td><td>"O Selo Igualdade Racial é vantagem competitiva, não troféu de parede. Como conquistar."</td><td>LinkedIn</td></tr>
+    </table>
+
+    <h3 id="c-persona">Conteúdo por persona</h3>
+    <table class="t-compact">
+      <tr><th>Persona</th><th>Ângulo</th><th>Canal-âncora</th><th>Cuidado</th></tr>
+      <tr><td><b>1. Estudante periferia (16)</b></td><td>"Direitos em 30s", segurança digital, racismo na escola</td><td>TikTok, IG, YouTube</td><td>Sigilo via família; nunca expor menor</td></tr>
+      <tr><td><b>2. Medida socioeducativa (17)</b></td><td>Recomeço, profissionalização como esperança</td><td>Material físico, oficina</td><td>ECA/SINASE; consentimento</td></tr>
+      <tr><td><b>3. Familiar de pessoa presa (49)</b></td><td>Direitos do visitante, FAQ, roda de conversa</td><td>WhatsApp, rádio, associações</td><td>Linguagem antiestigma</td></tr>
+      <tr><td><b>4. LGBTQIA+/Trans</b></td><td>Nome social, "sofri LGBTfobia, e agora?"</td><td>Instagram, TikTok, coletivos</td><td>Antidiscriminação, não só antirracismo</td></tr>
+      <tr><td><b>5. Trabalhador(a) informal</b></td><td>Direitos de quem trabalha por conta, MEI</td><td>WhatsApp, IG, lives</td><td>Ponte com o B2B</td></tr>
+      <tr><td><b>6. Comunidades tradicionais/rurais</b></td><td>Cartilha ilustrada, áudio, rádio</td><td>Rádio AM/FM, áudio WhatsApp</td><td>Linguagem simples; baixa internet</td></tr>
+      <tr><td><b>7. Pessoa com deficiência</b></td><td>"Como solicitar adaptações", #AcessibilidadeÉDireito</td><td>IG acessível, YouTube c/ Libras</td><td>Legenda + audiodescrição + Libras</td></tr>
+      <tr><td><b>8. Educador(a) social (32)</b></td><td>Guia "acionar a rede", kit de cards</td><td>LinkedIn, fóruns</td><td>Tratar como canal de distribuição</td></tr>
+    </table>
+    <div class="note roxo"><span class="tag">Educador e agente são distribuidores</span><p>A persona 8 e os 10 articuladores não são só público — são <strong>multiplicadores</strong>. Dar a eles um <b>kit de cards prontos</b> (mesma identidade âmbar) faz o alcance orgânico crescer fora da conta oficial.</p></div>
+
+    <h3 id="c-datas">Datas-marco do ano</h3>
+    <p>Efemérides dão contexto legítimo e multiplicam alcance. Planeje com <b>2 semanas</b> de antecedência (gravação + aprovação). Novembro é o pico — comece em outubro.</p>
+    <table class="t-compact">
+      <tr><th style="width:12%">Data</th><th>Marco</th><th>Ângulo</th></tr>
+      <tr><td><b>29/01</b></td><td>Visibilidade Trans</td><td>Nome social, acolhimento digno (persona 4)</td></tr>
+      <tr><td><b>08/03</b></td><td>Dia da Mulher</td><td>Mulher negra: maioria das vítimas, mas força e liderança</td></tr>
+      <tr><td><b>21/03</b></td><td>Eliminação da Discriminação Racial</td><td>Pico do 1º semestre — letramento + serviços</td></tr>
+      <tr><td><b>13/05</b></td><td>"Abolição"</td><td>"Não foi liberdade, foi e é luta" — letramento histórico</td></tr>
+      <tr><td><b>17/05</b></td><td>Contra a LGBTfobia</td><td>Defesa por identidade (persona 4)</td></tr>
+      <tr><td><b>25/07</b></td><td>Mulher Negra Latino-Americana / Tereza de Benguela</td><td>Ancestralidade feminina negra (Pilar 6)</td></tr>
+      <tr><td><b>21/09</b></td><td>Luta da Pessoa com Deficiência</td><td>Acessibilidade é direito (persona 7)</td></tr>
+      <tr><td><b>Outubro</b></td><td>Pré-Consciência Negra</td><td>Aquecimento: letramento + cultura; agenda de novembro</td></tr>
+      <tr><td><b>Todo Nov.</b></td><td>Mês da Consciência Negra</td><td>O grande momento: campanha integrada, oficinas, impacto</td></tr>
+      <tr><td><b>20/11</b></td><td>Consciência Negra (Zumbi)</td><td>Peça-âncora do ano; pertencimento + chamado à rede</td></tr>
+      <tr><td><b>03/12</b></td><td>Pessoa com Deficiência</td><td>Inclusão e acessibilidade (persona 7)</td></tr>
+      <tr><td><b>10/12</b></td><td>Direitos Humanos</td><td>CRPIR como casa de direitos; fecho do ano</td></tr>
+      <tr><td><b>?</b></td><td>Aniversário CRPIR / Cidade Tiradentes</td><td>Legado e trajetória — <i>validar a data antes de usar</i></td></tr>
+    </table>
+
+    <h3 id="c-canais">Canais não-Meta (as personas exigem)</h3>
+    <div class="grid g2">
+      <div class="card"><h4>📻 Rádio + áudio de WhatsApp</h4><p>Familiares (3) e comunidades tradicionais/rurais (6) — baixa internet, hábito de rádio. Spot 30–60s, linguagem falada, 1 ideia, repetição do contato. + áudios explicando direitos em tom de conversa.</p></div>
+      <div class="card"><h4>🖨️ Impresso — HQ, cartaz, cartilha</h4><p>Oficinas, escolas, unidades (personas 2 e 6). Cartilha de baixo letramento, cartaz com QR único, HQ de direitos. Distribuído pelos articuladores.</p></div>
+      <div class="card az"><h4>💼 LinkedIn — frente B2B</h4><p>Educador (8) e RH/ESG/jurídico (D). Série "RH antirracista", artigos sobre NR-1, carrosséis de impacto. Alimenta a prospecção.</p></div>
+      <div class="card"><h4>▶️ YouTube com Libras</h4><p>Depoimentos longos, explicadores, institucional acessível (persona 7). Vira fonte de cortes (Shorts/Reels) — abastece o motor.</p></div>
+    </div>
+
+    <h3 id="c-funil">Funil de conteúdo orgânico</h3>
+    <table class="t-compact">
+      <tr><th>Andar</th><th>Objetivo</th><th>Pilares</th><th>CTA</th></tr>
+      <tr><td><b>Topo (~50%)</b></td><td>Descoberta, identificação, não-seguidores</td><td>1, 2, 6</td><td>"Compartilha com quem precisa"</td></tr>
+      <tr><td><b>Meio (~30%)</b></td><td>Confiança, autoridade</td><td>3, 4</td><td>"Salva esse guia" / "Manda sua dúvida"</td></tr>
+      <tr><td><b>Fundo (~20%)</b></td><td>Acolhimento — virar conversa</td><td>4, 5</td><td>"Chama no WhatsApp, a gente te escuta"</td></tr>
+    </table>
+    <div class="note ok"><span class="tag">Por que o fundo é minoria</span><p>Em causa social, empurrar conversão cedo demais quebra a confiança. Primeiro acolhe e educa; o convite vem quando a relação já existe.</p></div>
+
+    <h3 id="c-mod">Moderação &amp; comunidade (o lado sensível)</h3>
+    <div class="grid g2">
+      <div class="card"><h4>Protocolo de comentários</h4><ul class="clean">
+        <li><b>Ódio/racismo:</b> ocultar (registrar print quando for prova); não alimentar discussão; filtro de palavras ativado.</li>
+        <li><b>Pessoa em sofrimento em público:</b> acolher e <b>levar ao privado</b> ("te chamamos no direct 💛"). Nunca expor o caso.</li>
+        <li><b>Dúvida de serviço:</b> responder com o próximo passo + WhatsApp.</li>
+      </ul></div>
+      <div class="card"><h4>Cuidados de publicação</h4><ul class="clean">
+        <li><b>Opt-in</b> versionado para qualquer história/imagem real (LGPD).</li>
+        <li>Nunca expor dado de <b>menor</b> ou vítima identificável.</li>
+        <li>Aprovação <b>Joseph → Nalva</b> para peças com a Prefeitura.</li>
+        <li><b>Ano eleitoral:</b> ciência e direitos, nunca partido.</li>
+      </ul></div>
+    </div>
+
+    <h3 id="c-kpi">KPIs orgânicos &amp; fluxo de produção</h3>
+    <div class="grid g2">
+      <div class="card"><h4>KPIs que importam</h4><ul class="clean">
+        <li><b>Salvamentos</b> e <b>compartilhamentos</b> — a moeda nº1.</li>
+        <li><b>Alcance de não-seguidores</b> — furar a bolha.</li>
+        <li><b>Mensagens iniciadas via orgânico</b> (DM/WhatsApp).</li>
+        <li><b>Crescimento por território</b> + <b>lift de busca por "CRPIR"</b>.</li>
+        <li><b>Sentimento dos comentários</b> — acolhimento percebido.</li>
+      </ul></div>
+      <div class="card"><h4>Semana de produção</h4><ul class="clean">
+        <li><b>Seg:</b> pauta da semana (do banco) + roteiros.</li>
+        <li><b>Qua:</b> dia fixo de <b>gravação</b> (motor de 8 peças).</li>
+        <li><b>Qui:</b> edição + acessibilidade + envio p/ aprovação.</li>
+        <li><b>Sex:</b> aprovação Joseph → Nalva + agendamento.</li>
+        <li><b>Contínuo:</b> moderação diária + Stories do dia.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="kpis">
+    <div class="eyebrow"><span class="dot" style="background:var(--esmeralda)"></span>Pergunta 8</div>
+    <h2>KPIs — painel amarrado a meta e funil</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>Custo por lead genérico não diz nada a um órgão público. Medimos o que o contrato cobra (acolhimentos, oficinas) cruzado com equidade — se está chegando a quem mais precisa.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Provar à Prefeitura o que a verba gerou e garantir que o alcance não fique só na bolha de quem já está bem.</p></div></div>
+    <table>
+      <tr><th style="width:16%">Etapa</th><th style="width:36%">Indicador</th><th>Meta de referência</th></tr>
+      <tr><td><span class="pill">Presença</span></td><td>Alcance/impressões por território</td><td>Cobrir os 5 territórios</td></tr>
+      <tr><td><span class="pill">Presença</span></td><td>Lift de busca por "CRPIR"/serviços</td><td>Tendência de alta a cada campanha</td></tr>
+      <tr><td><span class="pill laranja">Reconhec.</span></td><td>Cliques em cards de situação</td><td>Aumento mês a mês</td></tr>
+      <tr><td><span class="pill verde">Conversão</span></td><td>Contatos iniciados (WhatsApp/Portal)</td><td>Custo por contato <b>em queda</b></td></tr>
+      <tr><td><span class="pill verde">Conversão</span></td><td>Acolhimentos originados em mídia</td><td>Contribuir p/ <b>1.200/mês</b></td></tr>
+      <tr><td><span class="pill roxo">Fidelização</span></td><td>Usuários recorrentes/ativos</td><td>Base ativa crescente</td></tr>
+      <tr><td><span class="pill">Equidade</span></td><td>Alcance da população negra/grupos prioritários</td><td>Proporcional ao território</td></tr>
+      <tr><td><span class="pill esm">Acessib.</span></td><td>Peças com Libras/legenda/áudio</td><td><b>100%</b></td></tr>
+    </table>
+    <div class="note"><span class="tag">Como ler</span><p>Cruze alcance com <b>equidade</b> (audiência só é sucesso se chega a quem mais precisa). Sempre <b>custo por acolhimento qualificado</b> e <b>% do indicador contratual</b> — nunca CPL genérico, que não diz nada a um órgão público.</p></div>
+  </section>
+
+  <section id="gates">
+    <div class="eyebrow"><span class="dot" style="background:var(--vermelho)"></span>Antes de escalar</div>
+    <h2>Pré-requisitos &amp; riscos a blindar</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>Lidamos com dado sensível (raça, denúncia, menores) e com a marca da Prefeitura em ano eleitoral. Um erro aqui custa mais do que qualquer campanha rende.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Blindar o cliente — juridicamente e na reputação — antes de qualquer escala. Seguro e digno antes de rápido.</p></div></div>
+    <div class="grid g2">
+      <div class="card">
+        <h4>Checklist para ligar a mídia</h4>
+        <ul class="tick">
+          <li>Autorização de tema social na Meta <b>iniciada</b></li>
+          <li>WhatsApp API <b>oficial</b> confirmado</li>
+          <li>Pixel/CAPI + GA4 no Portal</li>
+          <li>Google Meu Negócio dos 5 pontos mapeado</li>
+          <li>UTMs/QR padronizados e CRM recebendo origem</li>
+          <li>Capacidade/semana por território definida</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Riscos &amp; mitigação</h4>
+        <table class="t-compact" style="box-shadow:none;margin:0">
+          <tr><td><b>Sem autorização Meta</b></td><td>R$0 roda → iniciar hoje</td></tr>
+          <tr><td><b>Demanda &gt; capacidade</b></td><td>Fila frustra → medir teto antes</td></tr>
+          <tr><td><b>LGPD prontuário</b></td><td>Anonimizar; opt-in; sem dado em URL</td></tr>
+          <tr><td><b>Ano eleitoral</b></td><td>Diretriz escrita; marcas oficiais</td></tr>
+          <tr><td><b>Concorrente no contrato</b></td><td>CRPIR âncora; padronizar atribuição</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="note warn"><span class="tag">Ainda NÃO confirmado (não usar como fato público)</span><p>Contagem de empresas com <b>Selo</b> ("1.220" é afirmação nossa — não validada) · existência/data da <b>efeméride da Cidade Tiradentes</b> · se "8 indicadores" = metas mínimas do TCL ou conjunto adicional · a estatística do <b>Disque 100</b> que circulou no Plano v1/v2.1 ("~3,2k→6,5k, +100%") está <b>superestimada</b> — ver apêndice de fontes.</p></div>
+  </section>
+
+  <section id="fontes">
+    <div class="eyebrow"><span class="dot" style="background:var(--esmeralda)"></span>Auditoria de procedência</div>
+    <h2>Fontes &amp; nível de confiança</h2>
+    <p class="lead">Cada afirmação deste plano classificada por origem e checagem. Verificação na web em <b>12/06/2026</b>. Nada aqui é achismo — o que não foi confirmado está marcado como tal.</p>
+
+    <table>
+      <tr><th style="width:30%">Afirmação</th><th style="width:14%">Status</th><th>O que a checagem mostrou</th></tr>
+      <tr><td><b>NR-1 / risco psicossocial obrigatório no PGR, com multa desde 26/05/2026</b></td><td><span class="pill esm">✔ Confirmado</span></td><td>Portaria MTE 1.419/2024 incluiu; Portaria 765/2025 fixou fiscalização com penalidade em 26/05/2026. Vale p/ todo empregador CLT, sem exceção de porte.</td></tr>
+      <tr><td><b>CVM 244 tornou o relato voluntário</b></td><td><span class="pill laranja">✔ c/ refino</span></td><td>Res. CVM 244 (29/05/2026) revogou a obrigatoriedade do relatório de sustentabilidade/clima (ISSB) das <b>companhias abertas</b> — voluntário via "pratique ou explique". Refino: é o relatório inteiro (não só o "S"), e só afeta empresas listadas. Conclusão do pitch se mantém.</td></tr>
+      <tr><td><b>Selo Igualdade Racial SP — Lei 16.340/2015 + Decreto 57.987/2017</b></td><td><span class="pill esm">✔ Confirmado</span></td><td>Correto. Novo dado útil: exige ≥20% de profissionais negros no quadro; inscrições costumam ir até 1º/out.</td></tr>
+      <tr><td><b>Google Ad Grants — US$10k/mês, CTR≥5%, sem palavra única, 2 grupos/camp., 2 anúncios/grupo, sitelinks, conversões</b></td><td><span class="pill esm">✔ Confirmado</span></td><td>Todas as regras conferem. Falha de CTR por 2 meses seguidos pode desativar a conta. Também veta keywords com Índice de Qualidade 1–2.</td></tr>
+      <tr><td><b>Meta — autorização de tema social no Brasil (doc + residência + "Pago por")</b></td><td><span class="pill esm">✔ Confirmado</span></td><td>Correto. Sem aviso, o anúncio é pausado/reprovado e vai p/ a Biblioteca. Desde 01/06/2026 a Meta detecta mídia feita/editada por IA generativa.</td></tr>
+      <tr><td><b>Disque 100 — "~3,2 mil (2023) → 6,5 mil (2024), +100%"</b> (vinha do Plano v1/v2.1)</td><td><span class="pill" style="background:#FCECEC;color:var(--vermelho);border-color:#F3CFCF">✕ Superestimado</span></td><td>Números reais (MDHC): <b>denúncias</b> 2023 ≈ 3,1 mil → 2024 ≈ 3,4 mil; <b>violações</b> ≈ 4,6 mil → 5,2 mil+. O "+100%" é do <b>Nordeste</b> (508→1.024), não nacional. A alta existe, mas é modesta no agregado. <i>(Não foi usado no corpo deste v2.)</i></td></tr>
+      <tr><td><b>"Menos de 10% de SP conhece a rede"</b></td><td><span class="pill roxo">Interno</span></td><td>Estimativa da liderança citada na R1 — não é pesquisa. Marcada como tal no texto.</td></tr>
+      <tr><td><b>Contagem "1.220 empresas com Selo"</b></td><td><span class="pill" style="background:#FCECEC;color:var(--vermelho);border-color:#F3CFCF">✕ Não validado</span></td><td>Afirmação nossa (Alder, R1). Não confirmada na SMDHC. Não citar número até validar.</td></tr>
+      <tr><td><b>Efeméride / "primeira unidade" Cidade Tiradentes</b></td><td><span class="pill">? Pendente</span></td><td>Não confirmado. Validar antes de usar como âncora de campanha.</td></tr>
+      <tr><td><b>Projeções (alcance, conversas, acolhimentos, custo/acolhimento)</b></td><td><span class="pill roxo">Premissa</span></td><td>Estimativas minhas em faixa de mercado (CPM R$12, custo/conversa R$14, conv. 45% etc.) — <b>não medidas para a CRPIR</b>. Só se confirmam com 14–30 dias de dado real. São cenário, não promessa.</td></tr>
+      <tr><td><b>Metas contratuais, personas, serviços, territórios, identidade âmbar</b></td><td><span class="pill esm">✔ Documento</span></td><td>Vêm direto do Plano &amp; Personas v2.1 e do brief SIGCRPIR (fonte do cliente). Base sólida.</td></tr>
+    </table>
+
+    <div class="note"><span class="tag">Fontes da verificação</span><p style="margin:0;font-size:.86rem">
+      NR-1: <a href="https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/seguranca-e-saude-no-trabalho/sst-portarias/2024/portaria-mte-no-1-419-nr-01-gro-nova-redacao.pdf">Portaria MTE 1.419/2024 (gov.br)</a> ·
+      CVM: <a href="https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-altera-resolucao-193-para-revogar-obrigatoriedade-da-divulgacao-de-informacoes-financeiras-relacionadas-a-sustentabilidade">CVM revoga obrigatoriedade (gov.br/cvm)</a> ·
+      Selo: <a href="https://legislacao.prefeitura.sp.gov.br/leis/lei-16340-de-30-de-dezembro-de-2015">Lei 16.340/2015 (PMSP)</a> ·
+      Ad Grants: <a href="https://support.google.com/grants/answer/7587473?hl=pt-BR">Política do Ad Grants (Google)</a> ·
+      Meta: <a href="https://transparency.meta.com/policies/ad-standards/SIEP-advertising/SIEP/">Padrões de tema social (Meta)</a> ·
+      Disque 100: <a href="https://www.gov.br/mdh/pt-br/assuntos/noticias/2024/novembro/mais-de-5-2-mil-violacoes-de-racismo-e-injuria-racial-foram-registradas-pelo-disque-100-em-2024">MDHC, nov/2024</a>.
+    </p></div>
+  </section>
+
+  <section id="decisoes">
+    <div class="eyebrow"><span class="dot" style="background:var(--ambar)"></span>O pedido da reunião</div>
+    <h2>As decisões que precisamos do Geraldo hoje</h2>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>Uma reunião de validação precisa terminar em decisões concretas, não em "vamos pensar". Listamos só as quatro que destravam todo o resto do plano.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Sair da reunião com autorização para começar — não com mais uma rodada de análise.</p></div></div>
+    <div class="grid g2">
+      <div class="card" style="border-left:4px solid var(--ambar)"><h4>1 · Cenário de partida</h4><p>Aprovar <b>Essencial (R$9k/mês)</b> em 2–3 territórios, com gatilho de escala atrelado à capacidade.</p></div>
+      <div class="card" style="border-left:4px solid var(--laranja)"><h4>2 · Liberar a Fase 0</h4><p>Autorizar <b>iniciar hoje</b> o tema social na Meta e marcar a reunião técnica de inventário.</p></div>
+      <div class="card" style="border-left:4px solid var(--roxo)"><h4>3 · B2B em paralelo</h4><p>Validar abrir a frente B2B na Fase 2 ancorada na <b>NR-1</b>, começando pela lista do Selo (mídia ~R$0).</p></div>
+      <div class="card" style="border-left:4px solid var(--verde)"><h4>4 · Conteúdo &amp; aprovação</h4><p>Confirmar fluxo Joseph→Nalva, dia fixo de gravação e a diretriz de blindagem eleitoral escrita.</p></div>
+    </div>
+    <div class="note ok"><span class="tag">A promessa deste plano</span><p>Cada peça move um indicador, num território, registrado no App e provável à Prefeitura. Honramos a alma social da Nalva <strong>enquanto</strong> entregamos as métricas de impacto do Jorge e do Geraldo. É marketing que vira prestação de contas — não anúncio que vira despesa.</p></div>
+  </section>
+
+  </div></main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><span class="umoja">Umoja Infinity</span> &nbsp;·&nbsp; Performance &amp; Comunicação</div>
+    <div>CRPIR — Plano de Ação · <b>v2 (skills dedicadas)</b> · 12/06/2026 · Confidencial</div>
+  </div>
+</footer>
+
+</body>
+</html>
