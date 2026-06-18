@@ -294,6 +294,21 @@ footer b{color:#fff}
       </div>
     </div>
 
+    <h3 style="margin-top:24px">Depois da primeira mensagem — o pós-WhatsApp</h3>
+    <p>O funil não termina no clique. O momento mais frágil é o que vem <b>depois</b> da 1ª mensagem do cidadão — e é o que mais mexe na taxa de virar acolhimento. Por isso o fluxo precisa estar definido:</p>
+    <div class="porque"><div class="p-why"><span class="lbl">💡 Por que pensamos assim</span><p>A pessoa chega com medo e a janela de coragem é curta. Se ninguém responde rápido e com acolhimento, ela desiste — e a culpa não é da mídia, é do atendimento.</p></div><div class="p-goal"><span class="lbl">🎯 O que esta ação busca</span><p>Garantir que toda primeira mensagem vire acolhimento: resposta rápida, triagem humana e próximo passo claro.</p></div></div>
+    <table class="t-compact">
+      <tr><th style="width:6%">#</th><th style="width:40%">O que acontece</th><th>Detalhe</th></tr>
+      <tr><td>1</td><td>Cidadão envia a mensagem (pré-preenchida do anúncio)</td><td>origem (UTM/QR) já marcada</td></tr>
+      <tr><td>2</td><td>Boas-vindas automática que <b>valida</b></td><td>"você não está errado; é um espaço seguro"</td></tr>
+      <tr><td>3</td><td><b>Triagem humana</b>: escuta, classifica a dor, agenda</td><td>aqui entra a pessoa de verdade</td></tr>
+      <tr><td>4</td><td>Pré-cadastro com <b>LGPD</b> (nome, território, consentimento)</td><td>consentimento antes do dado sensível</td></tr>
+      <tr><td>5</td><td>Agendamento (presencial ou remoto)</td><td>evita fila; hora marcada</td></tr>
+      <tr><td>6</td><td>Atendimento realizado</td><td>vira o acolhimento que conta na meta</td></tr>
+      <tr><td>7</td><td>Follow-up pós-atendimento</td><td>fecha o ciclo e fideliza</td></tr>
+    </table>
+    <div class="note"><span class="tag">As 3 regras do pós-WhatsApp</span><p><b>Tempo de resposta:</b> até <b>15 min</b> no horário comercial (a janela de coragem fecha rápido). <b>Capacidade:</b> teto de ~<b>20 conversas por agente/dia</b>, com alerta de excesso. <b>Classificação por tipo de dor</b> (racismo, assédio, xenofobia, LGBTfobia…) na triagem — é o que alimenta a segmentação por dor. <i>Como esse fluxo é registrado tecnicamente (cadastro, atendimento, nexo causal) é a frente de dados, conduzida com o Helan.</i></p></div>
+
     <div class="note"><span class="tag">Convenções de rastreamento (nascem com cada peça)</span>
       <p style="margin-bottom:.4em"><b>UTM:</b> <code>utm_source</code>=meta|google|tiktok|dooh|articulador · <code>utm_medium</code>=pago|grants|organico|qr|156 · <code>utm_campaign</code>=presenca|reconhecimento|conversao_{territorio} · <code>utm_content</code>={persona}_{criativo}</p>
       <p style="margin:0"><b>QR:</b> <code>qr_{lote}_{territorio}_{agenteId}_{midia}</code> → resolve para o Portal com a origem já gravada. <b>Nenhum dado pessoal em URL</b> (LGPD).</p></div>
@@ -753,6 +768,7 @@ footer b{color:#fff}
         <li><b>Contínuo:</b> moderação diária + Stories do dia.</li>
       </ul></div>
     </div>
+    <div class="note"><span class="tag">Produção criativa — parceria UAM</span><p>A produção das peças (Reels, carrosséis, cards — com Libras, legenda e áudio) é feita em parceria com os <b>alunos da UAM</b> (com orientação de professor). É isso que cobre o volume criativo sem estourar o orçamento de produção do Essencial.</p></div>
   </section>
 
   <section id="kpis">
@@ -771,6 +787,14 @@ footer b{color:#fff}
       <tr><td><span class="pill esm">Acessib.</span></td><td>Peças com Libras/legenda/áudio</td><td><b>100%</b></td></tr>
     </table>
     <div class="note"><span class="tag">Como ler</span><p>Cruze alcance com <b>equidade</b> (audiência só é sucesso se chega a quem mais precisa). Sempre <b>custo por acolhimento qualificado</b> e <b>% do indicador contratual</b> — nunca CPL genérico, que não diz nada a um órgão público.</p></div>
+
+    <h3 style="margin-top:22px">Ciclo de avaliação — 3 tempos</h3>
+    <div class="grid g3">
+      <div class="card"><span class="pill verde">Semanal</span><h4>Operacional</h4><p>Cruza gasto × conversas × acolhimentos, por território. <b>Sinal-chave:</b> se a conversão conversa→acolhimento cai abaixo de 30%, o problema é o <b>atendimento</b>, não a mídia.</p></div>
+      <div class="card"><span class="pill laranja">Mensal</span><h4>Tática</h4><p>Troca as premissas (CPM/CPC/custo por conversa) por <b>dados reais</b> e recalcula todas as projeções.</p></div>
+      <div class="card"><span class="pill roxo">Trimestral</span><h4>Estratégica</h4><p>4 perguntas: distribuição territorial proporcional? B2B gerou o 1º case? mix orgânico/pago equilibrado? expansão de escopo validada?</p></div>
+    </div>
+    <div class="note"><span class="tag">Ciclo de revisão (marcos)</span><p><b>Semana 2:</b> recalibrar as premissas com dado real. <b>Semana 6:</b> decisão go/no-go para subir do Essencial (2–3 territórios) ao Recomendado (5). <b>Semana 12:</b> primeira avaliação estratégica completa.</p></div>
   </section>
 
   <section id="gates">
@@ -880,6 +904,8 @@ footer b{color:#fff}
       <tr><td>Agendar a apresentação com os demais envolvidos</td><td>Geraldo + João</td></tr>
       <tr><td>Atualizar o Alder sobre o progresso</td><td>João</td></tr>
     </table>
+    <div class="note roxo"><span class="tag">Marketing × Dados — frentes separadas e interdependentes</span><p>Decisão da equipe: o <b>marketing</b> (estratégia, mídia, conteúdo) e a <b>camada de dados</b> (CRM/integração, conduzida com o <b>Helan</b>) são frentes distintas que andam <b>em paralelo</b> — para uma não travar a outra. O ponto que <b>obrigatoriamente</b> as conecta: a <b>origem de cada contato</b> (UTM/QR) tem de chegar ao cadastro e ao atendimento — é o que prova à Prefeitura o que a verba gerou. O "como" disso é a frente do Helan.</p></div>
+    <div class="note warn"><span class="tag">Ordem de largada — o primeiro ponto a tratar</span><p><strong>Iniciar HOJE a autorização de tema social na Meta.</strong> É o único item com prazo externo (leva dias), independente da camada de dados, e sem ele nenhuma mídia paga roda. Todo o resto (inventário de ativos, fluxo pós-WhatsApp, integração de dados) anda em paralelo.</p></div>
   </section>
 
   <section id="antes-depois">
